@@ -1,0 +1,59 @@
+$max-columns: 12;
+
+.insta-grid {
+
+  &__container {
+    box-sizing: border-box;
+    padding: 0 15px;
+  }
+
+  &__img-wrapper {
+    max-height: 370px;
+    max-width: 370px;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      box-sizing: border-box;
+      margin: 0 10px 10px 10px;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__follow-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px 10px 10px;
+  }
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__cols {
+    flex: 1;
+
+    @for $i from 1 through $max-columns {
+      &--#{$i} > * {
+        flex: auto;
+        width: 100% / $i;
+        margin-bottom: 7px;
+
+        @media (max-width: 1024px) {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+        }
+      }
+    }
+  }
+}

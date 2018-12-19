@@ -1,28 +1,27 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import './App.scss'
+import Instagram from './components/instagram/Instagram'
+import store from './stores/store'
+import { observer } from 'mobx-react'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+const App = observer(
+  class App extends Component {
+    state={
+      access_token: '2140277165.02b5921.39d4557f19714d30ab31573fd0af1b1d'
+    }
+
+    componentDidMount() {
+      store.getInstaData()
+    }
+
+    render() {
+      return (
+        <div className="app__wrapper">
+          <Instagram />
+        </div>
+      )
+    }
   }
-}
+)
 
-export default App;
+export default App

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.scss'
 import Instagram from './components/instagram/Instagram'
+import Logo from './components/logo/Logo'
 import store from './stores/store'
 import { observer } from 'mobx-react'
 
@@ -17,6 +18,7 @@ const App = observer(
     render() {
       return (
         <div className="app__wrapper">
+          <Logo />
           <Instagram />
         </div>
       )

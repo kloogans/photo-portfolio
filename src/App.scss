@@ -1,4 +1,12 @@
-@import './components/instagram/grid/grid';
+@import './styles/base';
+
+.app {
+
+  &__wrapper {
+    background-color: $blue--dark;
+    max-width: 2200px;
+  }
+}
 
 .App {
   text-align: center;

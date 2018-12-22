@@ -4,6 +4,11 @@
     opacity: 0;
     transition: all 0.5s ease;
 
+    @media (max-width: 768px) {
+      padding-top: 90px;
+      padding-bottom: 50px;
+    }
+
     &--visible {
       opacity: 1;
     }

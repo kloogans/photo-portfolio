@@ -1,8 +1,6 @@
 import { observable, decorate, action } from 'mobx'
-import createBrowserHistory from 'history/createBrowserHistory'
 
 class Store {
-  history = createBrowserHistory()
   loading = true
   loading_complete = false
 
@@ -18,15 +16,9 @@ class Store {
 
   close_full = true
 
-  pages = {
-    photos: true,
-    presets: false,
-    about: false,
-    contact: false
-  }
-
-  pushNewRoute = route => {
-    this.history.push(route)
+  current_page = {
+    name: 'photos',
+    color: '#202B36'
   }
 
   async getInstaData() {
@@ -91,11 +83,12 @@ class Store {
     }, 500)
   }
 
-  scrollToTop = () => {
-    window.scroll(0,0)
-    console.log('scroll')
+  changeCurrentPage = (page, color) => {
+    this.current_page = {
+      name: page,
+      color: color
+    }
   }
-
 
 }
 
@@ -107,14 +100,15 @@ decorate(Store, {
   full_image: observable,
   close_full: observable,
   shrink: observable,
-  pages: observable,
+  current_page: observable,
   pushNewRoute: action,
   getInstaData: action,
   getSelfData: action,
   openFullImage: action,
   closeFullImage: action,
   pagination: action,
-  scrollTop: action
+  scrollTop: action,
+  changeCurrentPage: action
 })
 
 const store = new Store()

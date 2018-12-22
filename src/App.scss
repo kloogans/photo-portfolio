@@ -8,17 +8,33 @@ body {
 
 #root {
   @include flex(row, center, center);
-  background: $blue--dark;
+  // background: $blue--dark;
 }
 
 .app {
 
   &__wrapper {
-    @include flex(column, flex-start, center);
+    @include flex(row, center, center);
     width: 100vw;
     min-height: 100vh;
     background-color: $blue--dark;
+    transition: background-color 0.3s ease;
+
+    @media (max-width: 768px) {
+      // padding-bottom: 50px;
+    }
+
+    &--dark {
+      background-color: $black;
+    }
+  }
+
+  &__inner {
+    @include flex(column, flex-start, center);
     max-width: 1200px;
+    min-height: 100vh;
+    background-color: $blue--dark;
+    transition: background-color 0.3s ease;
   }
 
   &--loading {
@@ -46,7 +62,7 @@ a {
 
 .section__container {
   @include flex(column, flex-start, center);
-  background: $black;
+  // background: $black;
   box-sizing: border-box;
   padding: 20px;
   min-width: 75vw;
@@ -54,6 +70,7 @@ a {
   border-radius: 3px;
 
   @media (max-width: 768px) {
+    justify-content: center;
     width: 100vw;
     border-radius: 0;
     padding: 20px 0;
@@ -67,6 +84,10 @@ a {
     letter-spacing: -1px;
     padding: 0 10px;
     max-width: 397px;
+
+    @media (min-width: 769px) {
+      font-size: 3vw;
+    }
   }
 
   p {

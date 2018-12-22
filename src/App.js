@@ -9,6 +9,7 @@ import TopBar from './components/top-bar/TopBar'
 import store from './stores/store'
 import { observer } from 'mobx-react'
 import Navigation from './components/navigation/Navigation'
+import Div100vh from 'react-div-100vh'
 
 const App = observer(
   class App extends Component {
@@ -22,7 +23,7 @@ const App = observer(
 
       setTimeout(() => {
         store.finishLoading()
-      }, 2000)
+      }, 1000)
 
       window.addEventListener("scroll", this._scroll)
     }
@@ -42,21 +43,27 @@ const App = observer(
     render() {
       return (
         <Router>
-          <div className="app__wrapper">
-            <div className={store.loading ? 'loading__wrapper' : 'remove'}>
-              <div className={store.loading_complete ? 'app--loading animate__fade--out' : 'app--loading'} />
-            </div>
-            <TopBar />
-            <Navigation />
-            <div ref='scroll' />
+          <Div100vh>
+          <div className="app__wrapper" style={{ backgroundColor: `${store.current_page.color}` }}>
+            <div className='app__inner' style={{ backgroundColor: `${store.current_page.color}` }}>
+
+              <div style={{ backgroundColor: `${store.current_page.color}` }}
+                   className={store.loading ? 'loading__wrapper' : 'remove'}>
+                <div style={{ backgroundColor: `${store.current_page.color}` }}
+                     className={store.loading_complete ? 'app--loading animate__fade--out' : 'app--loading'} />
+              </div>
+              <TopBar />
+              <Navigation />
+              <div ref='scroll' />
               <Switch>
                 <Route exact path='/' component={Instagram} />
                 <Route path='/about' component={About} />
                 <Route path='/presets' component={Presets} />
               </Switch>
-            {/* <Instagram /> */}
-            {/* <About /> */}
+
+            </div>
           </div>
+        </Div100vh>
       </Router>
       )
     }

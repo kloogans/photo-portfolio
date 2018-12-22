@@ -6,7 +6,7 @@ import store from '../../stores/store'
 
 const Instagram = observer(() => {
   return (
-    <div className='instagram__wrapper'>
+    <div className={store.loading ? 'instagram__wrapper' : 'instagram__wrapper instagram__wrapper--visible'}>
       <Grid />
       {store.full_image.is_active && <FullImage />}
     </div>

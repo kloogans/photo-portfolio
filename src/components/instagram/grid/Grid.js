@@ -34,7 +34,7 @@ const Grid = observer(
                     &nbsp;{v.comments.count}
                   </p>
                   <a target='_blank' href={v.link}>
-                    <i className='fas fa-external-link-square-alt' />
+                    <i className='fab fa-instagram' />
                   </a>
                 </div>
               </div>
@@ -46,7 +46,7 @@ const Grid = observer(
             {images}
             <div className='insta-grid__follow-link'>
               <a href='https://instagram.com/jamesthomasvision'>
-                INSTA
+                <i className='fab fa-instagram' />
               </a>
             </div>
           </div>

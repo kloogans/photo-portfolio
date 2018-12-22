@@ -1,0 +1,19 @@
+.animate__fade--in {
+  animation: fade-in 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
+.animate__fade--out {
+  animation: fade-out 0.5s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

@@ -21,7 +21,7 @@ $max-columns: 12;
     img {
       object-fit: cover;
       box-sizing: border-box;
-      margin: 0 10px 10px 10px;
+      // margin: 0 10px 10px 10px;
       height: 100%;
       width: 100%;
     }
@@ -59,7 +59,8 @@ $max-columns: 12;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100% - 35px);
+    height: calc(100% - 35px;);
+    width: 100%;
 
     p, a {
       margin: 0;
@@ -68,6 +69,15 @@ $max-columns: 12;
       text-decoration: none;
       color: white;
       font-size: 1.2rem;
+    }
+
+    a {
+      transition: all 0.2s ease;
+
+      &:focus,
+      &:hover {
+        transform: scale(1.1);
+      }
     }
   }
 
@@ -102,7 +112,6 @@ $max-columns: 12;
       &--#{$i} > * {
         flex: auto;
         width: 100% / $i;
-        margin-bottom: 7px;
 
         @media (max-width: 1024px) {
           width: 50%;

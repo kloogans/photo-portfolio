@@ -2,9 +2,14 @@
 @import '../components/instagram/grid/grid';
 @import '../components/instagram/full-image/full-image';
 @import '../components/logo/logo';
+@import '../components/navigation/navigation';
+@import '../components/top-bar/top-bar';
 @import './shared/variables';
 @import './shared/mixins';
+@import './shared/animations';
 
 // Fonts
 
 @import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
+
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:200,400,500');

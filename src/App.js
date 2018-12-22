@@ -3,6 +3,7 @@ import './App.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Instagram from './components/instagram/Instagram'
 import About from './components/about/About'
+import Presets from './components/presets/Presets'
 import Logo from './components/logo/Logo'
 import TopBar from './components/top-bar/TopBar'
 import store from './stores/store'
@@ -51,6 +52,7 @@ const App = observer(
               <Switch>
                 <Route exact path='/' component={Instagram} />
                 <Route path='/about' component={About} />
+                <Route path='/presets' component={Presets} />
               </Switch>
             {/* <Instagram /> */}
             {/* <About /> */}

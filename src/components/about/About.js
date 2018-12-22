@@ -8,7 +8,7 @@ const About = observer(() => {
     const user = mobx.toJS(store.instagram_user)
     console.log(user.data)
     return (
-      <div className='about__container animate__fade--in'>
+      <div className='section__container animate__fade--in'>
         <div className='about__cover'>
           <img src='/images/self.png' />
         </div>

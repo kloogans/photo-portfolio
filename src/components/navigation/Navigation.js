@@ -26,9 +26,9 @@ const Navigation = observer(
               <div className='navigation__tooltip'>
                 Presets?
               </div>
-              <button>
+              <Link to='/presets'>
                 <i className='fas fa-sliders-h' />
-              </button>
+              </Link>
             </div>
             <div className='navigation__link'>
               <div className='navigation__tooltip'>

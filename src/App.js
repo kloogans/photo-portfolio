@@ -20,9 +20,21 @@ const App = observer(
       setTimeout(() => {
         store.finishLoading()
       }, 2000)
+
+      window.addEventListener("scroll", this._scroll)
     }
 
-
+    _scroll = () => {
+      const distanceY = window.pageYOffset || document.documentElement.scrollTop,
+        shrinkOn = 50,
+        headerEl = this.refs.scroll
+      if (distanceY > shrinkOn) {
+        store.shrink = true
+      } else {
+        store.shrink = false
+      }
+      console.log(store.shrink)
+    }
 
 
     render() {
@@ -33,6 +45,7 @@ const App = observer(
           </div>
           <TopBar />
           <Navigation />
+          <div ref='scroll' />
           <Instagram />
         </div>
       )

@@ -5,22 +5,54 @@
 
   &__container {
     @include flex(row, center, center);
-    margin-top: 100px;
+    margin-top: 80px;
+    padding-bottom: 20px;
   }
 
   &__inner {
     width: 100%;
     @include flex(row, center, center);
 
+  }
+
+  &__link {
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:focus,
+    &:hover {
+
+      .navigation__tooltip {
+        opacity: 1;
+        transition: all 0.3s ease;
+      }
+    }
+
     button {
+      @include flex(row, center, center);
       background: transparent;
       color: white;
       border: none;
       outline: none;
       font-family: $font--main;
-      font-size: 1rem;
+      font-size: 1.1rem;
       box-sizing: border-box;
-      padding: 5px 10px;
+      padding: 5px 20px;
+      cursor: pointer;
     }
+  }
+
+  &__tooltip {
+    @include flex(row, center, center);
+    position: absolute;
+    top: -35px;
+    width: 100%;
+    padding: 5px;
+    background: lighten($blue--dark, 3%);
+    color: white;
+    opacity: 0;
+    font-family: $font--main;
+    font-size: 0.8em;
+    text-align: center;
   }
 }

@@ -12,6 +12,8 @@ class Store {
     index: 0
   }
 
+  shrink = false
+
   close_full = true
 
   async getInstaData() {
@@ -85,6 +87,7 @@ decorate(Store, {
   instagram_user: observable,
   full_image: observable,
   close_full: observable,
+  shrink: observable,
   getInstaData: action,
   getSelfData: action,
   openFullImage: action,

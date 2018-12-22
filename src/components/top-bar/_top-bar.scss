@@ -23,5 +23,12 @@
     height: 50px;
     border-radius: 0 0 5px 5px;
     background: transparentize($blue--dark, 0.15);
+    transform-origin: top;
+    transition: all 0.2s ease;
+  }
+
+  &--shrink {
+    transform: scale(0.75);
+    height: 38px;
   }
 }

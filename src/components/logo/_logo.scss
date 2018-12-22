@@ -1,3 +1,5 @@
+@import '../../styles/shared/animations';
+
 .logo {
   background: url('/images/jt-logo.png');
   background-repeat: no-repeat;
@@ -7,8 +9,9 @@
   width: 100%;
   z-index: 1000;
   transition: all 0.5s ease;
+  animation: fade-in 0.5s ease;
 
   &--loading {
-    transform: translateY(50vh) scale(1.7);
+    transform: translateY(calc(50vh - 25px)) scale(1.7);
   }
 }

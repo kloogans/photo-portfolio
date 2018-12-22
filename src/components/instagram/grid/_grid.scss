@@ -1,3 +1,5 @@
+@import '../../../styles/shared/mixins';
+
 $max-columns: 12;
 
 .insta-grid {
@@ -8,6 +10,7 @@ $max-columns: 12;
   }
 
   &__img-wrapper {
+    @include flex(row, center, center);
     position: relative;
     max-height: 370px;
     max-width: 370px;
@@ -85,7 +88,6 @@ $max-columns: 12;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 10px 10px 10px;
   }
 }
 

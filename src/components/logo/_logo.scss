@@ -14,4 +14,8 @@
   &--loading {
     transform: translateY(calc(50vh - 25px)) scale(1.7);
   }
+
+  &--clickable {
+    cursor: pointer;
+  }
 }

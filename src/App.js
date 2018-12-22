@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './App.scss'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Instagram from './components/instagram/Instagram'
+import About from './components/about/About'
 import Logo from './components/logo/Logo'
 import TopBar from './components/top-bar/TopBar'
 import store from './stores/store'
@@ -38,15 +40,22 @@ const App = observer(
 
     render() {
       return (
-        <div className="app__wrapper">
-          <div className={store.loading ? 'loading__wrapper' : 'remove'}>
-            <div className={store.loading_complete ? 'app--loading animate__fade--out' : 'app--loading'} />
+        <Router>
+          <div className="app__wrapper">
+            <div className={store.loading ? 'loading__wrapper' : 'remove'}>
+              <div className={store.loading_complete ? 'app--loading animate__fade--out' : 'app--loading'} />
+            </div>
+            <TopBar />
+            <Navigation />
+            <div ref='scroll' />
+              <Switch>
+                <Route exact path='/' component={Instagram} />
+                <Route path='/about' component={About} />
+              </Switch>
+            {/* <Instagram /> */}
+            {/* <About /> */}
           </div>
-          <TopBar />
-          <Navigation />
-          <div ref='scroll' />
-          <Instagram />
-        </div>
+      </Router>
       )
     }
   }

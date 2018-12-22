@@ -1,5 +1,11 @@
 @import './styles/base';
 
+html,
+#root,
+body {
+  min-height: 100vh;
+}
+
 #root {
   @include flex(row, center, center);
   background: $blue--dark;
@@ -8,6 +14,9 @@
 .app {
 
   &__wrapper {
+    @include flex(column, flex-start, center);
+    width: 100vw;
+    min-height: 100vh;
     background-color: $blue--dark;
     max-width: 1200px;
   }

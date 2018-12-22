@@ -1,6 +1,8 @@
 import { observable, decorate, action } from 'mobx'
+import createBrowserHistory from 'history/createBrowserHistory'
 
 class Store {
+  history = createBrowserHistory()
   loading = true
   loading_complete = false
 
@@ -15,6 +17,17 @@ class Store {
   shrink = false
 
   close_full = true
+
+  pages = {
+    photos: true,
+    presets: false,
+    about: false,
+    contact: false
+  }
+
+  pushNewRoute = route => {
+    this.history.push(route)
+  }
 
   async getInstaData() {
     const url = `https://api.instagram.com/v1/users/self/media/recent?access_token=2140277165.02b5921.39d4557f19714d30ab31573fd0af1b1d`
@@ -78,21 +91,30 @@ class Store {
     }, 500)
   }
 
+  scrollToTop = () => {
+    window.scroll(0,0)
+    console.log('scroll')
+  }
+
 
 }
 
 decorate(Store, {
+  history: observable,
   loading: observable,
   instagram: observable,
   instagram_user: observable,
   full_image: observable,
   close_full: observable,
   shrink: observable,
+  pages: observable,
+  pushNewRoute: action,
   getInstaData: action,
   getSelfData: action,
   openFullImage: action,
   closeFullImage: action,
-  pagination: action
+  pagination: action,
+  scrollTop: action
 })
 
 const store = new Store()

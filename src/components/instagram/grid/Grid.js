@@ -45,9 +45,9 @@ const Grid = observer(
           <div className='insta-grid__container grid grid__cols--3'>
             {images}
             <div className='insta-grid__img-wrapper'>
-              <a href='https://instagram.com/jamesthomasvision'>
+              {/* <a href='https://instagram.com/jamesthomasvision'>
                 <i className='fab fa-instagram' />
-              </a>
+              </a> */}
             </div>
           </div>
         )

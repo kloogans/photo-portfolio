@@ -30,7 +30,7 @@ body {
   }
 
   &__inner {
-    @include flex(column, flex-start, center);
+    @include flex(column, center, center);
     max-width: 1200px;
     min-height: 100vh;
     background-color: $blue--dark;
@@ -61,7 +61,7 @@ a {
 }
 
 .section__container {
-  @include flex(column, flex-start, center);
+  @include flex(column, center, center);
   // background: $black;
   box-sizing: border-box;
   padding: 20px;
@@ -74,6 +74,20 @@ a {
     width: 100vw;
     border-radius: 0;
     padding: 20px 0;
+  }
+
+  h1 {
+    @include flex(row, center, center);
+    color: white;
+    font-size: 1.4rem;
+    font-family: $font--main;
+    border: 3px solid white;
+    box-sizing: border-box;
+    padding: 15px;
+    margin: 5px 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
   }
 
   h2 {

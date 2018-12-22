@@ -11,9 +11,15 @@ const Presets = observer(
 
     render() {
       return (
-        <div className='section__container'>
-          <p>
-            PRESETS!
+        <div className='section__container animate__fade-in--long'>
+          <h1>
+            <i className='fas fa-sliders-h' />
+          </h1>
+          <h2>
+            COMING SOON
+          </h2>
+          <p style={{ textAlign: 'center', fontWeight: '300' }}>
+            Preset packs are still in development and will be available soon.
           </p>
         </div>
       )

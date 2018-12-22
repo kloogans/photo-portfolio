@@ -3,41 +3,6 @@
 
 .about {
 
-  &__container {
-    @include flex(column, flex-start, center);
-    background: $black;
-    box-sizing:border-box;
-    padding: 20px;
-    min-width: 75vw;
-    min-height: calc(100vh - 150px);
-    border-radius: 3px;
-
-    @media (max-width: 768px) {
-      border-radius: 0;
-      padding: 20px 0;
-    }
-
-    h2 {
-      text-align: center;
-      font-family: $font--main;
-      color: white;
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      padding: 0 10px;
-      max-width: 397px;
-    }
-
-    p {
-      color: white;
-      font-family: $font--main;
-      font-size: 0.9rem;
-      font-weight: 400;
-      margin: 3px 0;
-      padding: 0 10px;
-      max-width: 397px;
-    }
-  }
-
   &__description {
     max-width: 60%;
     padding: 10px 0;

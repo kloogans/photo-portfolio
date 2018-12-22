@@ -26,14 +26,13 @@ const App = observer(
 
     _scroll = () => {
       const distanceY = window.pageYOffset || document.documentElement.scrollTop,
-        shrinkOn = 50,
+        shrinkOn = 32,
         headerEl = this.refs.scroll
       if (distanceY > shrinkOn) {
         store.shrink = true
       } else {
         store.shrink = false
       }
-      console.log(store.shrink)
     }
 
 

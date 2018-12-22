@@ -53,9 +53,9 @@ const FullImage = observer(
                   </a>
                 </li>
                 <li>
-                  <button onClick={store.closeFullImage}>
+                  <a onClick={store.closeFullImage}>
                     <i className='fas fa-times' />
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>

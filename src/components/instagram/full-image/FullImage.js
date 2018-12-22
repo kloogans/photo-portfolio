@@ -11,17 +11,9 @@ const FullImage = observer(
       const profile = data_user.data
       const index = store.full_image.index
       if (data && profile) {
-        console.log(store.close_full ? 'should be animating' : null)
         const engagement_rate = ((data[index].likes.count + data[index].comments.count) / profile.counts.followed_by) * 100
         return (
           <div className={store.close_full ? 'full-image__wrapper animate__fade--out' : 'full-image__wrapper animate__fade--in'}>
-            {/* <div className='full-image__top-controls'>
-              <div className='full-image__top-inner'>
-                <button onClick={store.closeFullImage}>
-                  <i className='fas fa-times' />
-                </button>
-              </div>
-            </div> */}
             <div className='full-image__image'>
               <img src={data[store.full_image.index].images.standard_resolution.url} />
               <div className='full-image__pagination-container'>

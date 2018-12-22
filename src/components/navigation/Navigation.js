@@ -11,7 +11,7 @@ const Navigation = observer(
     render() {
       return (
         <nav style={{ backgroundColor: `${store.current_page.color}` }}
-             className='navigation__container'>
+             className={store.full_image.is_active ? 'navigation__container remove' : 'navigation__container'}>
           <div className='navigation__inner'>
             <div className='navigation__link'>
               <div className='navigation__tooltip'>

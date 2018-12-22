@@ -41,10 +41,12 @@ const App = observer(
 
 
     render() {
+      const is_active = store.full_image.is_active
       return (
         <Router>
-          <Div100vh>
-          <div className="app__wrapper" style={{ backgroundColor: `${store.current_page.color}` }}>
+          <Div100vh className={is_active ? 'no-scroll' : null}>
+          <div className='app__wrapper'
+               style={{ backgroundColor: `${store.current_page.color}` }}>
             <div className='app__inner' style={{ backgroundColor: `${store.current_page.color}` }}>
 
               <div style={{ backgroundColor: `${store.current_page.color}` }}

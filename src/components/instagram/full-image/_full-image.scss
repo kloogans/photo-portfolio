@@ -58,7 +58,7 @@
     padding: 20px;
     // width: 50vw;
     width: 75vw;
-    height: calc(100% - 58px);
+    height: auto;
 
     @media (max-width: 768px) {
       width: 100vw;
@@ -66,7 +66,8 @@
     }
 
     img {
-      max-height: calc(100vh - 96px;);
+      height: auto;
+      // max-height: calc(100vh - 96px;);
 
       @media (max-width: 768px) {
         width: 100%;
@@ -108,6 +109,8 @@
     width: 100%;
     height: 56px;
     background: lighten($blue--dark, 2%);
+    z-index: 9999;
+
 
 
     ul {

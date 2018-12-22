@@ -33,6 +33,11 @@ $max-columns: 12;
       // margin: 0 10px 10px 10px;
       height: 100%;
       width: 100%;
+
+      @media (max-width: 768px) {
+        min-height: 320px;
+        max-width: 320px;
+      }
     }
 
     &:focus,
@@ -110,7 +115,7 @@ $max-columns: 12;
   width: 100%;
 
   @media (max-width: 768px) {
-    flex-direction: column;
+    // flex-direction: column;
     align-items: center;
   }
 
@@ -136,7 +141,9 @@ $max-columns: 12;
         @media (max-width: 768px) {
           display: flex;
           justify-content: center;
-          width: 100%;
+          width: calc(100% / 3);
+          max-height: 200px;
+          height: auto;
         }
       }
     }

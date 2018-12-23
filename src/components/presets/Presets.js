@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import store from '../../stores/store'
+import IosOptions from 'react-ionicons/lib/IosOptions'
 
 const Presets = observer(
   class Presets extends Component {
@@ -13,7 +14,7 @@ const Presets = observer(
       return (
         <div className='section__container animate__fade-in--long'>
           <h1>
-            <i className='fas fa-sliders-h' />
+            <IosOptions color='white' fontSize='3rem' />
           </h1>
           <h2>
             COMING SOON

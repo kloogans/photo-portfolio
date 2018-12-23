@@ -13,7 +13,7 @@ const TopBar = observer(
 
     render() {
       return (
-        <div className='top-bar__container'>
+        <div className={!store.full_image.is_active ? 'top-bar__container' : 'remove'}>
           <div className={store.shrink ? 'top-bar__logo-box top-bar--shrink' : 'top-bar__logo-box'}
                style={{ backgroundColor: `${store.current_page.color}` }}>
             <Logo scroll={this.scrollToTop} />

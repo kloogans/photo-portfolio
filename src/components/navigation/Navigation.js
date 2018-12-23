@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import store from '../../stores/store'
 import { Link } from 'react-router-dom'
+import IosApps from 'react-ionicons/lib/IosApps'
+import IosOptions from 'react-ionicons/lib/IosOptions'
+import IosPaper from 'react-ionicons/lib/IosPaper'
+import IosContact from 'react-ionicons/lib/IosContact'
+import IosSend from 'react-ionicons/lib/IosSend'
+
 
 const Navigation = observer(
   class Navigation extends Component {
@@ -11,22 +17,30 @@ const Navigation = observer(
     render() {
       return (
         <nav style={{ backgroundColor: `${store.current_page.color}` }}
-             className={store.full_image.is_active ? 'navigation__container remove' : 'navigation__container'}>
+             className='navigation__container'>
           <div className='navigation__inner'>
             <div className='navigation__link'>
               <div className='navigation__tooltip'>
                 Photos
               </div>
               <Link to='/' onClick={() => this.changePage('photos', '#202B36')}>
-                <i className='fas fa-th' />
+                <IosApps color='white' />
               </Link>
             </div>
+            {/* <div className='navigation__link'>
+              <div className='navigation__tooltip'>
+                Photos
+              </div>
+              <Link to='/' onClick={() => this.changePage('photos', '#202B36')}>
+                <i className='fas fa-th' />
+              </Link>
+            </div> */}
             <div className='navigation__link'>
               <div className='navigation__tooltip'>
-                Presets?
+                Presets
               </div>
               <Link to='/presets' onClick={() => this.changePage('presets', '#2b120f')}>
-                <i className='fas fa-sliders-h' />
+                <IosOptions color='white' />
               </Link>
             </div>
             <div className='navigation__link'>
@@ -34,7 +48,7 @@ const Navigation = observer(
                 Blog
               </div>
               <Link to='/about'>
-                <i className='fas fa-newspaper' />
+                <IosPaper color='white' />
               </Link>
             </div>
             <div className='navigation__link'>
@@ -42,7 +56,7 @@ const Navigation = observer(
                 About
               </div>
               <Link to='/about' onClick={() => this.changePage('about', '#0F1A2B')}>
-                <i className='fas fa-user' />
+                <IosContact color='white' />
               </Link>
             </div>
             <div className='navigation__link'>
@@ -50,7 +64,7 @@ const Navigation = observer(
                 Contact
               </div>
               <button>
-                <i className='fas fa-envelope' />
+                <IosSend color='white' />
               </button>
             </div>
           </div>

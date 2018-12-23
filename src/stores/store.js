@@ -26,7 +26,10 @@ class Store {
     const data = await window.fetch(url)
     try {
       const insta_data = await data.json()
-      if (data && insta_data) this.instagram = insta_data
+      if (data && insta_data) {
+        this.instagram = insta_data
+        this.finishLoading()
+      }
     } catch(e) {
       console.log('ERRORERROR')
       console.error(e)

@@ -14,40 +14,10 @@
     padding: 20px;
     background: $blue--dark;
     box-sizing: border-box;
-    z-index: 1000;
+    z-index: 10;
 
     @media (max-width: 768px) {
       padding: 20px 0;
-    }
-  }
-
-  &__top-inner {
-    @include flex(row, flex-end, center);
-    width: 75vw;
-  }
-
-  &__top-controls {
-    @include flex(row, center, center);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-
-
-    @media (max-width: 768px) {
-      width: 100%;
-    }
-
-    button {
-      background: transparentize($blue--dark, 0.5);
-      font-size: 2rem;
-      box-sizing: border-box;
-      padding: 10px;
-      color: white;
-      cursor: pointer;
-      border: none;
-      outline: none;
     }
   }
 
@@ -56,7 +26,6 @@
     @include flex(row, center, center);
     box-sizing: border-box;
     padding: 20px;
-    // width: 50vw;
     width: 75vw;
     height: auto;
 
@@ -67,7 +36,6 @@
 
     img {
       height: auto;
-      // max-height: calc(100vh - 96px;);
 
       @media (max-width: 768px) {
         width: 100%;
@@ -101,7 +69,7 @@
     }
   }
 
-  &__bottom-stats {
+  &__top-stats {
     @include flex(row, center, center);
     position: absolute;
     bottom: 0;
@@ -109,7 +77,10 @@
     width: 100%;
     height: 56px;
     background: lighten($blue--dark, 2%);
-    z-index: 9999;
+
+    @media (max-width: 768px) {
+      top: 0;
+    }
 
 
 

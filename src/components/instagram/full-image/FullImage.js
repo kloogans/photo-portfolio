@@ -25,7 +25,7 @@ const FullImage = observer(
                 </button>
               </div>
             </div>
-            <div className='full-image__bottom-stats'>
+            <div className='full-image__top-stats'>
               <ul>
                 <li>
                   <i className='fas fa-heart' />

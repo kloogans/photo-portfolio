@@ -9,11 +9,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 2000;
-
-    @media (max-width: 540px) {
-      z-index: 2000;
-    }
+    z-index: 1000;
   }
 
   &__logo-box {
@@ -25,6 +21,7 @@
     transform-origin: top;
     transition: all 0.3s ease;
     cursor: pointer;
+    z-index: 100;
   }
 
   &--shrink {

@@ -21,9 +21,9 @@ const App = observer(
       store.getInstaData()
       store.getSelfData()
 
-      setTimeout(() => {
-        store.finishLoading()
-      }, 1000)
+      // setTimeout(() => {
+      //   store.finishLoading()
+      // }, 1000)
 
       window.addEventListener("scroll", this._scroll)
     }
@@ -44,7 +44,7 @@ const App = observer(
       const is_active = store.full_image.is_active
       return (
         <Router>
-          <Div100vh className={is_active ? 'no-scroll' : null}>
+          <Div100vh>
           <div className='app__wrapper'
                style={{ backgroundColor: `${store.current_page.color}` }}>
             <div className='app__inner' style={{ backgroundColor: `${store.current_page.color}` }}>

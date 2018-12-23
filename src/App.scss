@@ -46,6 +46,9 @@ body {
     height: 100vh;
     z-index: 1000;
     background: $blue--dark;
+    transition: all 0.3s ease;
+    animation: fade-in 0.3s ease;
+    animation-fill-mode: forwards;
   }
 }
 
@@ -63,7 +66,7 @@ a {
 
 .section__container {
   @include flex(column, center, center);
-  // background: $black;
+  flex: 1;
   box-sizing: border-box;
   padding: 20px;
   min-width: 75vw;

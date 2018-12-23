@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import * as mobx from 'mobx'
 import { observer } from 'mobx-react'
 import store from '../../../stores/store'
+import { withRouter } from 'react-router-dom'
 import moment from 'moment'
+import IosText from 'react-ionicons/lib/IosText'
 
 const Grid = observer(
   class Grid extends Component {
@@ -13,10 +15,8 @@ const Grid = observer(
       if (store.instagram) {
         const data = mobx.toJS(store.instagram)
         const data_json = data.data
-        console.log(data)
         const images = data_json.map((v, i) => {
           const time = moment.unix(v.created_time).fromNow()
-          // console.log(v.images.standard_resolution.url)
           return (
             <div key={v.id} onClick={() => this.toggleFullImage(i)} className='insta-grid__img-wrapper'>
               <img src={v.images.standard_resolution.url} />
@@ -59,4 +59,4 @@ const Grid = observer(
   }
 )
 
-export default Grid
+export default withRouter(Grid)

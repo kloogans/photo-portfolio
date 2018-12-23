@@ -1,10 +1,28 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import * as mobx from 'mobx'
+import { withRouter } from 'react-router-dom'
 import store from '../../../stores/store'
 
 const FullImage = observer(
   class FullImage extends Component {
+
+    componentDidMount() {
+      const data = mobx.toJS(store.instagram.data)
+      const index = store.full_image.index
+      this.props.history.push(`/photo/${data[index].id}`)
+    }
+
+    handleImageSelection = (direction, id) => {
+      store.pagination(direction)
+      this.props.history.push(`/photo/${id}`)
+    }
+
+    handleClosingRoute = () => {
+      store.closeFullImage()
+      this.props.history.push('/')
+    }
+    
     render() {
       const data = mobx.toJS(store.instagram.data)
       const data_user = mobx.toJS(store.instagram_user)
@@ -17,10 +35,10 @@ const FullImage = observer(
             <div className='full-image__image'>
               <img src={data[store.full_image.index].images.standard_resolution.url} />
               <div className='full-image__pagination-container'>
-                <button onClick={() => store.pagination('previous')}>
+                <button onClick={() => this.handleImageSelection('previous', data[index].id)}>
                   <i className='fas fa-chevron-left' />
                 </button>
-                <button onClick={() => store.pagination('next')}>
+                <button onClick={() => this.handleImageSelection('next', data[index].id)}>
                   <i className='fas fa-chevron-right' />
                 </button>
               </div>
@@ -45,7 +63,7 @@ const FullImage = observer(
                   </a>
                 </li>
                 <li>
-                  <a onClick={store.closeFullImage}>
+                  <a onClick={this.handleClosingRoute}>
                     <i className='fas fa-times' />
                   </a>
                 </li>
@@ -60,4 +78,4 @@ const FullImage = observer(
   }
 )
 
-export default FullImage
+export default withRouter(FullImage)

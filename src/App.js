@@ -6,6 +6,7 @@ import About from './components/about/About'
 import Presets from './components/presets/Presets'
 import Logo from './components/logo/Logo'
 import TopBar from './components/top-bar/TopBar'
+import Calculator from './containers/calculator/Calculator'
 import store from './stores/store'
 import { observer } from 'mobx-react'
 import Navigation from './components/navigation/Navigation'
@@ -20,17 +21,12 @@ const App = observer(
     componentDidMount() {
       store.getInstaData()
       store.getSelfData()
-
-      // setTimeout(() => {
-      //   store.finishLoading()
-      // }, 1000)
-
       window.addEventListener("scroll", this._scroll)
     }
 
     _scroll = () => {
       const distanceY = window.pageYOffset || document.documentElement.scrollTop,
-        shrinkOn = 32,
+        shrinkOn = 7,
         headerEl = this.refs.scroll
       if (distanceY > shrinkOn) {
         store.shrink = true
@@ -59,8 +55,10 @@ const App = observer(
               <div ref='scroll' />
               <Switch>
                 <Route exact path='/' component={Instagram} />
+                <Route path='/photo/:id' component={Instagram} />
                 <Route path='/about' component={About} />
                 <Route path='/presets' component={Presets} />
+                <Route path='/calculator' component={Calculator} />
               </Switch>
 
             </div>

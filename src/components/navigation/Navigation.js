@@ -12,12 +12,21 @@ import IosSend from 'react-ionicons/lib/IosSend'
 const Navigation = observer(
   class Navigation extends Component {
 
-    changePage = (page, color) => store.changeCurrentPage(page, color)
+    changePage = (page, color) => {
+      store.changeCurrentPage(page, color)
+      store.loading = true
+      store.loading_complete = false
+
+      setTimeout(() => {
+        store.finishLoading()
+      }, 1000)
+    }
 
     render() {
+      const width = window.innerWidth
       return (
         <nav style={{ backgroundColor: `${store.current_page.color}` }}
-             className='navigation__container'>
+             className={store.shrink && width > 768 ? 'navigation__container hidden' : 'navigation__container'}>
           <div className='navigation__inner'>
             <div className='navigation__link'>
               <div className='navigation__tooltip'>

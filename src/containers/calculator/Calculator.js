@@ -13,22 +13,32 @@ const Calculator = observer(
     componentDidMount() {
       this.checkLocalStorage()
       const path = this.props.history.location
+      const local = window.localStorage.getItem('access_token')
       let hash = path.hash
-      if (hash) {
-        hash = hash.substring(hash.indexOf("=") + 1)
-        store.access_token = hash
+      if (hash || local.length) {
+        if (hash) {
+          hash = hash.substring(hash.indexOf("=") + 1)
+          store.access_token = hash
+          window.localStorage.setItem('access_token', hash)
+          console.log('logged in via HASH')
+        } else if (local.length) {
+          store.access_token = localStorage.getItem('access_token')
+          console.log('logged in via LOCALSTORAGE')
+        } else {
+          console.log('weird stuff')
+        }
         store.authenticated = true
-        window.localStorage.setItem('access_token', hash)
-        // this.props.history.push(`/calculator?token=${hash}`)
         store.getInstagramUserData()
         store.getInstagramPostData()
+      } else {
+        console.log('not logged in')
       }
     }
 
     checkLocalStorage = () => {
-      const local = window.localStorage
-      if(local.getItem('access_token')) {
-        store.access_token = local.getItem('access_token')
+      const local = localStorage.getItem('access_token')
+      if(local.length) {
+        store.access_token = local
         store.authenticated = true
       }
     }

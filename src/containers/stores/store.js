@@ -67,7 +67,7 @@ class Store {
       if (data && insta_data) {
         this.instagram_user_data = insta_data
         // console.log('user: ', insta_data)
-        this.finishLoading()
+        // this.finishLoading()
       }
     } catch(e) {
       console.log('ERRORERROR')

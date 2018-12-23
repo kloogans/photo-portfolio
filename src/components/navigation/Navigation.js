@@ -7,6 +7,7 @@ import IosOptions from 'react-ionicons/lib/IosOptions'
 import IosPaper from 'react-ionicons/lib/IosPaper'
 import IosContact from 'react-ionicons/lib/IosContact'
 import IosSend from 'react-ionicons/lib/IosSend'
+import IosCalculator from 'react-ionicons/lib/IosCalculator'
 
 
 const Navigation = observer(
@@ -14,12 +15,12 @@ const Navigation = observer(
 
     changePage = (page, color) => {
       store.changeCurrentPage(page, color)
-      store.loading = true
-      store.loading_complete = false
-
-      setTimeout(() => {
-        store.finishLoading()
-      }, 1000)
+      // store.loading = true
+      // store.loading_complete = false
+      //
+      // setTimeout(() => {
+      //   store.finishLoading()
+      // }, 1000)
     }
 
     render() {
@@ -54,10 +55,10 @@ const Navigation = observer(
             </div>
             <div className='navigation__link'>
               <div className='navigation__tooltip'>
-                Blog
+                Engagement Calculator
               </div>
-              <Link to='/about'>
-                <IosPaper color='white' />
+              <Link to='/calculator'>
+                <IosCalculator color='white' />
               </Link>
             </div>
             <div className='navigation__link'>

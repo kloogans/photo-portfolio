@@ -11,6 +11,11 @@ const Header = observer(() =>{
 
   return (
     <header className='calc-header__container'>
+      <div className='calc-header__logout'>
+        <button onClick={store.handleLogout}>
+          Logout
+        </button>
+      </div>
       <div className='calc-header__profile'>
         <img src={data.profile_picture} />
         <p>{data.username}</p>

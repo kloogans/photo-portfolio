@@ -56,7 +56,7 @@ class Store {
       average_comments: average_comments,
       average_engagement: average_engagement
     }
-    console.log('tittysex: ', average_engagement)
+    // console.log('tittysex: ', average_engagement)
   }
 
   async getInstagramUserData() {
@@ -67,12 +67,18 @@ class Store {
       if (data && insta_data) {
         this.instagram_user_data = insta_data
         // console.log('user: ', insta_data)
-        // this.finishLoading()
+        this.finishLoading()
       }
     } catch(e) {
       console.log('ERRORERROR')
       console.error(e)
     }
+  }
+
+  handleLogout = () => {
+    this.access_token = null
+    this.authenticated = false
+    window.localStorage.clear()
   }
 }
 

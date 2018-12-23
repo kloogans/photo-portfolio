@@ -1,0 +1,67 @@
+@import '../../../styles/shared/mixins';
+@import '../../../styles/shared/variables';
+
+
+.calc-header {
+
+  &__container {
+    @include flex(column, center, center);
+  }
+
+  &__profile {
+    @include flex(column, center, center);
+
+    h3 {
+      font-family: $font--main;
+      color: white;
+      font-size: 2rem;
+      padding: 5px 0;
+      margin: 0;
+    }
+  }
+
+  &__profile-engagement {
+    font-family: $font--main;
+    color: white;
+    border-bottom: 2px solid white;
+    padding: 5px 0 !important;
+    margin: 0 !important;
+  }
+
+  &__profile-photo {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__section {
+    @include flex(row, center, center);
+    padding: 10px 0;
+
+    .section__box {
+      @include flex(column, center, center);
+      font-weight: 500;
+      font-family: $font--main;
+      color: white;
+      padding: 0 15px !important;
+
+      .stats__title {
+        border-bottom: 1px solid white;
+        font-weight: 300;
+        padding: 5px 0;
+        font-size: 0.9rem;
+      }
+
+      span {
+        padding: 5px 0;
+        font-weight: 500;
+      }
+    }
+  }
+}

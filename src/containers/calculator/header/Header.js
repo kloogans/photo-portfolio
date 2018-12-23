@@ -16,25 +16,61 @@ const Header = observer(() =>{
           Logout
         </button>
       </div>
+
       <div className='calc-header__profile'>
-        <img src={data.profile_picture} />
+        <div className='calc-header__profile-photo'>
+          <img src={data.profile_picture} />
+        </div>
+
         <p>{data.username}</p>
-        <div className='calc-header__follow-stats'>
-          <p>Followers: {data.counts.followed_by}</p>
-          <p>Following: {data.counts.follows}</p>
-          <p>Posts: {data.counts.media}</p>
+
+        <div className='calc-header__section'>
+          <div className='section__box'>
+            <span className='stats__title'>
+              Posts
+            </span>
+            <span>{data.counts.media}</span>
+          </div>
+          <div className='section__box'>
+            <span className='stats__title'>
+              Followers
+            </span>
+            <span>{data.counts.followed_by}</span>
+          </div>
+          <div className='section__box'>
+            <span className='stats__title'>
+              Following
+            </span>
+            <span>{data.counts.follows}</span>
+          </div>
         </div>
-        <h3>
-          {store.engagement.average_engagement}%
-        </h3>
-        <div className='calc-header__engagement-stats'>
-          <p>
-            Average likes: {store.engagement.average_likes}
-          </p>
-          <p>
-            Average comments: {store.engagement.average_comments}
-          </p>
+
+        <div className='calc-header__section'>
+          <div className='section__box'>
+            <p className='stats__title'>
+              Engagement (Avg)
+            </p>
+            <h3>
+              {store.engagement.average_engagement}%
+            </h3>
+          </div>
         </div>
+
+        <div className='calc-header__section'>
+          <div className='section__box'>
+            <span className='stats__title'>
+              Likes(Avg)
+            </span>
+            <span>{store.engagement.average_likes}</span>
+          </div>
+          <div className='section__box'>
+            <span className='stats__title'>
+              Comments(Avg)
+            </span>
+            <span>{store.engagement.average_comments}</span>
+          </div>
+        </div>
+
       </div>
     </header>
   )

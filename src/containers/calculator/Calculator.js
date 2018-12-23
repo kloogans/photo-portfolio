@@ -20,10 +20,10 @@ const Calculator = observer(
           hash = hash.substring(hash.indexOf("=") + 1)
           store.access_token = hash
           window.localStorage.setItem('access_token', hash)
-          console.log('logged in via HASH')
+          console.log('authenticated via HASH')
         } else if (local.length) {
           store.access_token = localStorage.getItem('access_token')
-          console.log('logged in via LOCALSTORAGE')
+          console.log('authenticated via LOCALSTORAGE')
         } else {
           console.log('weird stuff')
         }
@@ -47,7 +47,6 @@ const Calculator = observer(
       const url = `https://api.instagram.com/oauth/authorize/?client_id=${store.client_id}&redirect_uri=http://localhost:3003/calculator&response_type=token`
       if (store.authenticated && store.instagram_data) {
         const data = mobx.toJS(store.instagram_data)
-        console.log(data)
         return (
           <div className='section__container'>
             <Header />

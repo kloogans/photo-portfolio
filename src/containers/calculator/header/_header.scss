@@ -6,10 +6,13 @@
 
   &__container {
     @include flex(column, center, center);
+    width: 100%;
+    position: relative;
   }
 
   &__profile {
     @include flex(column, center, center);
+    width: 100%;
 
     h3 {
       font-family: $font--main;
@@ -18,6 +21,11 @@
       padding: 5px 0;
       margin: 0;
     }
+  }
+
+  &__profile-header {
+    @include flex(row, center, center);
+    width: 100%;
   }
 
   &__profile-engagement {
@@ -40,28 +48,81 @@
     }
   }
 
-  &__section {
+  &__display {
     @include flex(row, center, center);
-    padding: 10px 0;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+  }
+
+  &__display-info {
+    @include flex(column, center, center);
+    width: 100%;
+    height: 100%;
+    background: lighten($blue--dark, 5%);
+  }
+
+  &__section {
+    @include flex(row, flex-start, center);
 
     .section__box {
       @include flex(column, center, center);
       font-weight: 500;
       font-family: $font--main;
       color: white;
-      padding: 0 15px !important;
+      height: 100%;
+      background: lighten($blue--dark, 5%);
+      padding: 25px 35px !important;
 
-      .stats__title {
-        border-bottom: 1px solid white;
-        font-weight: 300;
-        padding: 5px 0;
-        font-size: 0.9rem;
+      &--padding {
+       width: 100%;
+       padding: 25px 51px !important;
       }
 
       span {
         padding: 5px 0;
-        font-weight: 500;
+        font-size: 0.9rem;
       }
     }
+
+    &--margin {
+      margin: 0 0 0 5px;
+      height: 126px;
+      min-width: 157px;
+    }
   }
+
+  &__stat {
+    font-weight: 600 !important;
+    padding: 20px;
+    font-size: 0.9rem;
+  }
+
+}
+
+.section__logout {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  button {
+    border: 2px solid white;
+    border-radius: 2px;
+    padding: 10px;
+    background: transparent;
+    box-sizing: border-box;
+    font-family: $font--main;
+    color: white;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+}
+
+.engage__icon {
+  background-image: url('/images/engage.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
 }

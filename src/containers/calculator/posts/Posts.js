@@ -13,18 +13,18 @@ const Posts = observer(() => {
     const comments = p.comments.count
     const engagement = (((likes + comments) / ig_user.counts.followed_by) * 100).toFixed(2)
     return(
-      <div key={p.id} className='calc-posts__post'>
-        <img src={p.images.standard_resolution.url} />
-        <div className='calc-posts__image-stats'>
+      <div key={p.id} className='calc-posts__img-wrapper'>
+          <img src={p.images.standard_resolution.url} />
+        {/* <div className='calc-posts__image-stats'>
           <p>Likes: {p.likes.count}</p>
           <p>Comments: {p.comments.count}</p>
           <p>Engagement: {engagement}%</p>
-        </div>
+        </div> */}
       </div>
     )
   })
   return (
-    <div className='calc-posts__container'>
+    <div className='calc-posts__container grid grid__cols--2'>
       {post}
     </div>
   )

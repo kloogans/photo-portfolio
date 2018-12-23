@@ -68,7 +68,7 @@ a {
   @include flex(column, center, center);
   flex: 1;
   box-sizing: border-box;
-  padding: 20px;
+  // padding: 20px;
   min-width: 75vw;
   min-height: calc(100vh - 150px);
   border-radius: 3px;

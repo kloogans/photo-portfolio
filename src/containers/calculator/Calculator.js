@@ -37,14 +37,14 @@ const Calculator = observer(
 
     checkLocalStorage = () => {
       const local = localStorage.getItem('access_token')
-      if(local.length) {
+      if(local && local.length) {
         store.access_token = local
         store.authenticated = true
       }
     }
 
     render() {
-      const url = `https://api.instagram.com/oauth/authorize/?client_id=${store.client_id}&redirect_uri=http://localhost:3003/calculator&response_type=token`
+      const url = `https://api.instagram.com/oauth/authorize/?client_id=02b592124d0c490f8d0d9bc56d29415f&redirect_uri=http://localhost:3000/calculator&response_type=token`
       if (store.authenticated && store.instagram_data) {
         const data = mobx.toJS(store.instagram_data)
         return (

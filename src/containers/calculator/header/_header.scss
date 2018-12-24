@@ -8,6 +8,10 @@
     @include flex(column, center, center);
     width: 100%;
     position: relative;
+
+    @media (max-width: 768px) {
+      margin-top: 70px;
+    }
   }
 
   &__profile {
@@ -26,6 +30,7 @@
   &__profile-header {
     @include flex(row, center, center);
     width: 100%;
+    flex-wrap: wrap;
   }
 
   &__profile-engagement {
@@ -50,9 +55,9 @@
 
   &__display {
     @include flex(row, center, center);
-    flex-wrap: wrap;
     box-sizing: border-box;
     margin-bottom: 5px;
+    width: 100%;
   }
 
   &__display-info {
@@ -65,18 +70,29 @@
   &__section {
     @include flex(row, flex-start, center);
 
+    @media (max-width: 768px) {
+      width: 100%;
+      justify-content: center;
+    }
+
     .section__box {
       @include flex(column, center, center);
       font-weight: 500;
       font-family: $font--main;
       color: white;
       height: 100%;
+      min-width: 85px;
+      padding: 5px 0;
       background: lighten($blue--dark, 5%);
-      padding: 25px 35px !important;
+      // padding: 25px 35px !important;
+
+      @media (max-width: 768px) {
+        width: 100%;
+      }
 
       &--padding {
        width: 100%;
-       padding: 25px 51px !important;
+       // padding: 25px 51px !important;
       }
 
       span {

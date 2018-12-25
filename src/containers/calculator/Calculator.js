@@ -15,13 +15,13 @@ const Calculator = observer(
       const path = this.props.history.location
       const local = window.localStorage.getItem('access_token')
       let hash = path.hash
-      if (hash || local.length) {
+      if (hash || local) {
         if (hash) {
           hash = hash.substring(hash.indexOf("=") + 1)
           store.access_token = hash
           window.localStorage.setItem('access_token', hash)
           console.log('authenticated via HASH')
-        } else if (local.length) {
+        } else if (local) {
           store.access_token = localStorage.getItem('access_token')
           console.log('authenticated via LOCALSTORAGE')
         } else {
@@ -44,7 +44,7 @@ const Calculator = observer(
     }
 
     render() {
-      const url = `https://api.instagram.com/oauth/authorize/?client_id=02b592124d0c490f8d0d9bc56d29415f&redirect_uri=http://localhost:3000/calculator&response_type=token`
+      const url = `https://api.instagram.com/oauth/authorize/?client_id=074a548e0ba74680869c005b9653bfc2&redirect_uri=http://localhost:3000/calculator&response_type=token`
       if (store.authenticated && store.instagram_data) {
         const data = mobx.toJS(store.instagram_data)
         return (

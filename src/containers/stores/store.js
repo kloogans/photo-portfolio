@@ -3,7 +3,7 @@ import * as mobx from 'mobx'
 
 class Store {
   access_token = null
-  client_id = '02b592124d0c490f8d0d9bc56d29415f'
+  client_id = '074a548e0ba74680869c005b9653bfc2'
 
   authenticated = false
 

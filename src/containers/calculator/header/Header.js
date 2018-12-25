@@ -12,83 +12,57 @@ const Header = observer(() =>{
   return (
     <header className='calc-header__container'>
 
-      <div className='grid grid__cols-2'>
         <div className='calc-header__display'>
 
-          <div className='calc-header__section'>
+          <div className='section__box'>
+            <div className='calc-header__profile-photo'>
+              <img src={data.profile_picture} />
+            </div>
+            <p>{data.username}</p>
+          </div>
+
+          <div className='section__box'>
+            <div className='calc-header__stat'>
+              <div className='engage__icon' />
+            </div>
+            <h3>
+              {store.engagement.average_engagement}%
+            </h3>
+          </div>
+
+          <div className='calc-header__profile-stats'>
             <div className='section__box'>
-              <div className='calc-header__profile-photo'>
-                <img src={data.profile_picture} />
-              </div>
-              <p>{data.username}</p>
+              <span className='calc-header__stat'>
+                Posts
+              </span>
+              <p>{data.counts.media}</p>
+            </div>
+
+            <div className='section__box'>
+              <i className='fas fa-users' />
+              <p>{data.counts.followed_by}</p>
             </div>
           </div>
-
-          <div className='calc-header__section calc-header__section--margin'>
-            <div className='section__box section__box--padding'>
-              <div className='calc-header__stat'>
-                <div className='engage__icon' />
-              </div>
-              <h3>
-                {store.engagement.average_engagement}%
-              </h3>
-            </div>
-          </div>
-
-        </div>
-
-        <div className='calc-header__profile'>
-
-          <div className='calc-header__profile-header'>
-
-            <div className='calc-header__section'>
-              <div className='section__box'>
-                <span className='calc-header__stat'>
-                  Posts
-                </span>
-                <span>{data.counts.media}</span>
-              </div>
-              <div className='section__box'>
-                <span className='calc-header__stat'>
-                  <i className='fas fa-users' />
-                </span>
-                <span>{data.counts.followed_by}</span>
-              </div>
-              {/* <div className='section__box'>
-                <span className='calc-header__stat'>
-                  Following
-                </span>
-                <span>{data.counts.follows}</span>
-              </div> */}
+          <div className='calc-header__profile-stats'>
+            <div className='section__box'>
+                <i className='fas fa-heart' />
+              <p>{store.engagement.average_likes}</p>
             </div>
 
-            <div className='calc-header__section'>
-              <div className='section__box'>
-                <span className='calc-header__stat'>
-                  <i className='fas fa-heart' />
-                </span>
-                <span>{store.engagement.average_likes}</span>
-              </div>
-              <div className='section__box'>
-                <span className='calc-header__stat'>
-                  <i className='fas fa-comment' />
-                </span>
-                <span>{store.engagement.average_comments}</span>
-              </div>
+            <div className='section__box'>
+              <i className='fas fa-comment' />
+              <p>{store.engagement.average_comments}</p>
             </div>
-
-
 
           </div>
 
-        </div>
       </div>
 
-      <div className='section__box section__logout'>
+      {/* <div className='section__box section__logout'>
         <button onClick={store.handleLogout}>
           Logout
         </button>
-      </div>
+      </div> */}
 
     </header>
   )

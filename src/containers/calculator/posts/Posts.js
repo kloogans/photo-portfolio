@@ -15,16 +15,16 @@ const Posts = observer(() => {
     return(
       <div key={p.id} className='calc-posts__img-wrapper'>
           <img src={p.images.standard_resolution.url} />
-        {/* <div className='calc-posts__image-stats'>
-          <p>Likes: {p.likes.count}</p>
-          <p>Comments: {p.comments.count}</p>
-          <p>Engagement: {engagement}%</p>
-        </div> */}
+        <div className='calc-posts__image-stats'>
+          <p><i className='fas fa-heart' /> {p.likes.count}</p>
+          <p><i className='fas fa-comment' /> {p.comments.count}</p>
+          <p><i className='fas fa-users' /> {engagement}%</p>
+        </div>
       </div>
     )
   })
   return (
-    <div className='calc-posts__container grid grid__cols--2'>
+    <div className='calc-posts__container grid'>
       {post}
     </div>
   )

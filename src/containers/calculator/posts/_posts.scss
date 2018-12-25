@@ -34,7 +34,7 @@
 
       @media (max-width: 768px) {
         min-height: 320px;
-        max-width: 320px;
+        // max-width: 320px;
       }
     }
 
@@ -43,6 +43,21 @@
       // .insta-grid__info {
       //   opacity: 1;
       // }
+    }
+  }
+
+  &__image-stats {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0,0,0,0.6);
+    padding: 10px 0;
+    @include flex(row, center, center);
+
+    p {
+      font-family: $font--main;
+      font-weight: 600 !important;
+      color: white;
     }
   }
 

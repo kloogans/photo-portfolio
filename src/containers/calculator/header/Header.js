@@ -22,9 +22,9 @@ const Header = observer(() =>{
           </div>
 
           <div className='section__box'>
-            <div className='calc-header__stat'>
-              <div className='engage__icon' />
-            </div>
+            <span className='calc-header__stat'>
+              Engagement
+            </span>
             <h3>
               {store.engagement.average_engagement}%
             </h3>
@@ -39,18 +39,24 @@ const Header = observer(() =>{
             </div>
 
             <div className='section__box'>
-              <i className='fas fa-users' />
+              <span className='calc-header__stat'>
+                <i className='fas fa-users' />
+              </span>
               <p>{data.counts.followed_by}</p>
             </div>
           </div>
           <div className='calc-header__profile-stats'>
             <div className='section__box'>
+              <span className='calc-header__stat'>
                 <i className='fas fa-heart' />
+              </span>
               <p>{store.engagement.average_likes}</p>
             </div>
 
             <div className='section__box'>
-              <i className='fas fa-comment' />
+              <span className='calc-header__stat'>
+                <i className='fas fa-comment' />
+              </span>
               <p>{store.engagement.average_comments}</p>
             </div>
 

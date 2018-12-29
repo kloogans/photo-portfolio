@@ -48,14 +48,14 @@ const Calculator = observer(
       if (store.authenticated && store.instagram_data) {
         const data = mobx.toJS(store.instagram_data)
         return (
-          <div className='section__container' style={{ padding: 'none' }}>
+          <div className='section__container animate__fade-in--long' style={{ padding: 'none' }}>
             <Header />
             <Posts />
           </div>
         )
       } else {
         return (
-          <div className='section__container'>
+          <div className='section__container animate__fade-in--long'>
             <h2>
               Instagram Engagement Calculator
             </h2>

@@ -22,12 +22,14 @@ const App = observer(
       store.getInstaData()
       store.getSelfData()
       window.addEventListener("scroll", this._scroll)
+      // document.querySelector('.app').addEventListener("scroll", this._scroll)
     }
 
     _scroll = () => {
+      console.log('is scrolling')
       const distanceY = window.pageYOffset || document.documentElement.scrollTop,
-        shrinkOn = 7,
-        headerEl = this.refs.scroll
+            shrinkOn = 7,
+            headerEl = this.refs.scroll
       if (distanceY > shrinkOn) {
         store.shrink = true
       } else {
@@ -40,7 +42,7 @@ const App = observer(
       const is_active = store.full_image.is_active
       return (
         <Router>
-          <Div100vh>
+          <Div100vh className='app'>
           <div className='app__wrapper'
                style={{ backgroundColor: `${store.current_page.color}` }}>
             <div className='app__inner' style={{ backgroundColor: `${store.current_page.color}` }}>

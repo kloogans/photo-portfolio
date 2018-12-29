@@ -3,7 +3,8 @@
 html,
 #root,
 body {
-  min-height: 100vh;
+  // min-height: 100vh;
+  height: 100%;
   margin: 0;
 }
 
@@ -11,15 +12,15 @@ body {
   @include flex(row, center, center);
   // background: $blue--dark;
 }
-
 .app {
+  width: 100%;
 
   &__wrapper {
     @include flex(row, center, center);
-    width: 100vw;
-    min-height: 100vh;
+    // min-height: 100vh;
     background-color: $blue--dark;
     transition: background-color 0.5s ease;
+    overflow-x: hidden;
 
     @media (max-width: 768px) {
       // padding-bottom: 50px;
@@ -33,7 +34,7 @@ body {
   &__inner {
     @include flex(column, center, center);
     max-width: 1200px;
-    min-height: 100vh;
+    // min-height: 100vh;
     background-color: $blue--dark;
     transition: background-color 0.5s ease;
   }
@@ -69,15 +70,15 @@ a {
   flex: 1;
   box-sizing: border-box;
   // padding: 20px;
-  min-width: 75vw;
-  min-height: calc(100vh - 150px);
+  width: 100%;
+  min-height: 100vh;
   border-radius: 3px;
 
   @media (max-width: 768px) {
     justify-content: center;
     width: 100vw;
     border-radius: 0;
-    padding: 20px 0;
+    padding: 60px 0 50px 0;
   }
 
   h1 {

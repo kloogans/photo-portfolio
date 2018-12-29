@@ -22,7 +22,7 @@ class Store {
   }
 
   async getInstaData() {
-    const url = `https://api.instagram.com/v1/users/self/media/recent?access_token=2140277165.02b5921.28b83d62a98144bb8d28303c28921e8b`
+    const url = `https://api.instagram.com/v1/users/self/media/recent?access_token=2140277165.02b5921.1d659c076e4a4420b932050d837914b4`
     const data = await window.fetch(url)
     try {
       const insta_data = await data.json()
@@ -38,7 +38,7 @@ class Store {
   }
 
   async getSelfData() {
-    const url = `https://api.instagram.com/v1/users/self?access_token=2140277165.02b5921.28b83d62a98144bb8d28303c28921e8b`
+    const url = `https://api.instagram.com/v1/users/self?access_token=2140277165.02b5921.1d659c076e4a4420b932050d837914b4`
     const data = await window.fetch(url)
     try {
       const insta_data = await data.json()

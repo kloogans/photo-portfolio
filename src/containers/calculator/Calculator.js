@@ -13,16 +13,16 @@ const Calculator = observer(
     componentDidMount() {
       this.checkLocalStorage()
       const path = this.props.history.location
-      const local = window.localStorage.getItem('access_token')
+      const local = window.localStorage.getItem('ig_access_token')
       let hash = path.hash
       if (hash || local) {
         if (hash) {
           hash = hash.substring(hash.indexOf("=") + 1)
           store.access_token = hash
-          window.localStorage.setItem('access_token', hash)
+          window.localStorage.setItem('ig_access_token', hash)
           console.log('authenticated via HASH')
         } else if (local) {
-          store.access_token = localStorage.getItem('access_token')
+          store.access_token = localStorage.getItem('ig_access_token')
           console.log('authenticated via LOCALSTORAGE')
         } else {
           console.log('weird stuff')

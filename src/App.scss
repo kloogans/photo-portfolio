@@ -74,6 +74,10 @@ a {
   min-height: 100vh;
   border-radius: 3px;
 
+  @media (min-width: 769px) {
+    min-height: calc(100vh - 132px);
+  }
+
   @media (max-width: 768px) {
     justify-content: center;
     width: 100vw;
@@ -117,7 +121,6 @@ a {
     font-weight: 500;
     margin: 3px 0;
     padding: 0 10px;
-    max-width: 397px;
   }
 }
 

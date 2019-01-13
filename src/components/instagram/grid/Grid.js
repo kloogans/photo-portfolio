@@ -12,7 +12,7 @@ const Grid = observer(
     toggleFullImage = index => store.openFullImage(index)
 
     render() {
-      if (store.instagram) {
+      if (store.instagram && store.instagram_user) {
         const data = mobx.toJS(store.instagram)
         const data_json = data.data
         const images = data_json.map((v, i) => {

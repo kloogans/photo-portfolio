@@ -53,14 +53,14 @@ const Navigation = observer(
                 <IosOptions color='white' />
               </Link>
             </div>
-            <div className='navigation__link'>
+            {/* <div className='navigation__link'>
               <div className='navigation__tooltip'>
                 Engagement Calculator
               </div>
               <Link to='/calculator'>
                 <IosCalculator color='white' />
               </Link>
-            </div>
+            </div> */}
             <div className='navigation__link'>
               <div className='navigation__tooltip'>
                 About

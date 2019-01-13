@@ -9,6 +9,7 @@ import TopBar from './components/top-bar/TopBar'
 import Calculator from './containers/calculator/Calculator'
 import store from './stores/store'
 import { observer } from 'mobx-react'
+import * as mobx from 'mobx'
 import Navigation from './components/navigation/Navigation'
 import Div100vh from 'react-div-100vh'
 
@@ -26,7 +27,6 @@ const App = observer(
     }
 
     _scroll = () => {
-      console.log('is scrolling')
       const distanceY = window.pageYOffset || document.documentElement.scrollTop,
             shrinkOn = 7,
             headerEl = this.refs.scroll
@@ -60,7 +60,7 @@ const App = observer(
                 <Route path='/photo/:id' component={Instagram} />
                 <Route path='/about' component={About} />
                 <Route path='/presets' component={Presets} />
-                <Route path='/calculator' component={Calculator} />
+                {/* <Route path='/calculator' component={Calculator} /> */}
               </Switch>
 
             </div>

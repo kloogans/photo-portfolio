@@ -11,13 +11,26 @@
     @include flex(column, center, center);
     width: 100%;
     height: 100vh;
-    padding: 20px;
     background: $blue--dark;
     box-sizing: border-box;
     z-index: 10;
+  }
 
-    @media (max-width: 768px) {
-      padding: 20px 0;
+  &__slide {
+    @include flex(column, center, center);
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    span {
+      display: block;
+      position: relative;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
     }
   }
 
@@ -30,15 +43,19 @@
     height: auto;
 
     @media (max-width: 768px) {
-      width: 100vw;
+      min-width: 100vw;
+      height: 100%;
       padding: 0;
+      // overflow: hidden;
     }
 
     img {
       height: auto;
 
       @media (max-width: 768px) {
-        width: 100%;
+        min-width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }

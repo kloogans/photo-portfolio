@@ -1,0 +1,35 @@
+@import './mixins';
+@import './variables';
+
+.text {
+  font-family: $font--main;
+  color: white;
+
+  &--x-small {
+    font-size: 0.75rem !important;
+  }
+
+  &--small {
+    font-size: 0.9rem !important;
+  }
+
+  &--medium {
+    font-size: 1.1rem !important;
+  }
+
+  &--large {
+    font-size: 2rem !important;
+  }
+
+  &--regular {
+    font-weight: 500 !important;
+  }
+
+  &--underline {
+    border-bottom: 1px solid white;
+  }
+
+  &--no-padding {
+    padding: 0 !important;
+  }
+}

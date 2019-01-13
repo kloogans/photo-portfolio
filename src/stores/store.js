@@ -1,4 +1,5 @@
 import { observable, decorate, action } from 'mobx'
+import * as mobx from 'mobx'
 
 class Store {
   loading = true
@@ -21,15 +22,22 @@ class Store {
     color: '#202B36'
   }
 
+  access_token = '2140277165.02b5921.b5c752fc1ca8456b817fb25dbc780d10'
+
   async getInstaData() {
-    const url = `https://api.instagram.com/v1/users/self/media/recent?access_token=2140277165.02b5921.1d659c076e4a4420b932050d837914b4`
+    const url = `https://api.instagram.com/v1/users/self/media/recent?access_token=${this.access_token}`
     const data = await window.fetch(url)
     try {
       const insta_data = await data.json()
       if (insta_data) {
+        if (insta_data.meta.code === 400) {
+          this.loading = true
+          this.loading_complete = false
+        }
         console.log(insta_data)
         this.instagram = insta_data
         this.finishLoading()
+        this.detectUrlWithImage()
       }
     } catch(e) {
       console.log('ERRORERROR')
@@ -38,7 +46,7 @@ class Store {
   }
 
   async getSelfData() {
-    const url = `https://api.instagram.com/v1/users/self?access_token=2140277165.02b5921.1d659c076e4a4420b932050d837914b4`
+    const url = `https://api.instagram.com/v1/users/self?access_token=${this.access_token}`
     const data = await window.fetch(url)
     try {
       const insta_data = await data.json()
@@ -47,6 +55,16 @@ class Store {
       console.log('ERRORERROR')
       console.error(e)
     }
+  }
+
+  detectUrlWithImage = () => {
+    const path = window.location.pathname,
+          id = path.replace(/^(?:\/\/|[^\/]+)*\/[^\/]+\//,""),
+          data = mobx.toJS(this.instagram),
+          posts = data.data
+    let index
+    if (posts) index = posts.map(p => p.id).indexOf(id)
+    if (id.length > 1 && index) this.openFullImage(index)
   }
 
   openFullImage = i => {
@@ -77,7 +95,6 @@ class Store {
       if (this.full_image.index === 0) this.full_image.index = this.instagram.data.length - 1
       this.full_image.index--
     }
-    console.log(this.instagram.data.length - 1)
   }
 
   finishLoading = () => {

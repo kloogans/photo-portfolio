@@ -26,6 +26,10 @@ class Store {
     try {
       const insta_data = await data.json()
       if (data && insta_data) {
+        if (insta_data.meta.code === 400) {
+          this.authenticated = false
+          this.access_token = null
+        }
         this.instagram_data = insta_data
         this.getAverageRates()
         // console.log(insta_data)

@@ -13,15 +13,7 @@ import IosCalculator from 'react-ionicons/lib/IosCalculator'
 const Navigation = observer(
   class Navigation extends Component {
 
-    changePage = (page, color) => {
-      store.changeCurrentPage(page, color)
-      // store.loading = true
-      // store.loading_complete = false
-      //
-      // setTimeout(() => {
-      //   store.finishLoading()
-      // }, 1000)
-    }
+    changePage = (page, color) => store.changeCurrentPage(page, color)
 
     render() {
       const width = window.innerWidth
@@ -37,14 +29,6 @@ const Navigation = observer(
                 <IosApps color='white' />
               </Link>
             </div>
-            {/* <div className='navigation__link'>
-              <div className='navigation__tooltip'>
-                Photos
-              </div>
-              <Link to='/' onClick={() => this.changePage('photos', '#202B36')}>
-                <i className='fas fa-th' />
-              </Link>
-            </div> */}
             <div className='navigation__link'>
               <div className='navigation__tooltip'>
                 Presets
@@ -53,14 +37,6 @@ const Navigation = observer(
                 <IosOptions color='white' />
               </Link>
             </div>
-            {/* <div className='navigation__link'>
-              <div className='navigation__tooltip'>
-                Engagement Calculator
-              </div>
-              <Link to='/calculator'>
-                <IosCalculator color='white' />
-              </Link>
-            </div> */}
             <div className='navigation__link'>
               <div className='navigation__tooltip'>
                 About

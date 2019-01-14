@@ -34,13 +34,11 @@ class Store {
           this.loading = true
           this.loading_complete = false
         }
-        console.log(insta_data)
         this.instagram = insta_data
         this.finishLoading()
         this.detectUrlWithImage()
       }
     } catch(e) {
-      console.log('ERRORERROR')
       console.error(e)
     }
   }
@@ -52,7 +50,6 @@ class Store {
       const insta_data = await data.json()
       this.instagram_user = await insta_data
     } catch(e) {
-      console.log('ERRORERROR')
       console.error(e)
     }
   }
@@ -64,7 +61,7 @@ class Store {
           posts = data.data
     let index
     if (posts) index = posts.map(p => p.id).indexOf(id)
-    if (id.length > 1 && index) this.openFullImage(index)
+    if (id.length > 1 && index >= 0) this.openFullImage(index)
   }
 
   openFullImage = i => {

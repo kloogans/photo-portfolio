@@ -14,7 +14,7 @@ const About = observer(
       if (store.instagram_user) {
         const user = mobx.toJS(store.instagram_user)
         return (
-          <div className='section__container animate__fade--in'>
+          <section className='section__container animate__fade--in'>
             <div className='about__cover animate__fade-in--long'>
               <img src='/images/self.png' />
             </div>
@@ -38,7 +38,7 @@ const About = observer(
                 <i className='fas fa-code' />
               </a>
             </div>
-          </div>
+          </section>
         )
       } else {
         return 'Loading...'

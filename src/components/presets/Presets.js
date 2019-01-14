@@ -14,12 +14,15 @@ const Presets = observer(
 
     render() {
       return (
-        <div className='section__container animate__fade-in--long'>
+        <section className={store.loading
+                            ? 'hidden'
+                            : 'section__container animate__fade-in--long'}>
           <div className='presets__title-container'>
             <h2 className='presets__title text--large text--underline text--no-padding'>
               Presets
             </h2>
-            <p className='presets__text text--small text--no-padding' style={{ textAlign: 'left' }}>
+            <p className='presets__text text--small text--no-padding'
+               style={{ textAlign: 'left' }}>
               Presets can help make your life in post a little bit easier.
 
             </p>
@@ -37,7 +40,7 @@ const Presets = observer(
               })
             }
           </div>
-        </div>
+        </section>
       )
     }
   }

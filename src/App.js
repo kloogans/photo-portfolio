@@ -60,7 +60,6 @@ const App = observer(
                 <Route path='/photo/:id' component={Instagram} />
                 <Route path='/about' component={About} />
                 <Route path='/presets' component={Presets} />
-                {/* <Route path='/calculator' component={Calculator} /> */}
               </Switch>
 
             </div>

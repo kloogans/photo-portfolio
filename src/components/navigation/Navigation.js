@@ -4,11 +4,8 @@ import store from '../../stores/store'
 import { Link } from 'react-router-dom'
 import IosApps from 'react-ionicons/lib/IosApps'
 import IosOptions from 'react-ionicons/lib/IosOptions'
-import IosPaper from 'react-ionicons/lib/IosPaper'
 import IosContact from 'react-ionicons/lib/IosContact'
 import IosSend from 'react-ionicons/lib/IosSend'
-import IosCalculator from 'react-ionicons/lib/IosCalculator'
-
 
 const Navigation = observer(
   class Navigation extends Component {

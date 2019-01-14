@@ -108,6 +108,18 @@ class Store {
     }
   }
 
+  handleScroll = () => {
+    const distanceY = window.pageYOffset || document.documentElement.scrollTop,
+          shrinkOn = 7
+    if (distanceY > shrinkOn) {
+      this.shrink = true
+    } else {
+      this.shrink = false
+    }
+  }
+
+  formatNum = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+  
 }
 
 decorate(Store, {
@@ -126,7 +138,9 @@ decorate(Store, {
   closeFullImage: action,
   pagination: action,
   scrollTop: action,
-  changeCurrentPage: action
+  changeCurrentPage: action,
+  handleScroll: action,
+  formatNum: action
 })
 
 const store = new Store()

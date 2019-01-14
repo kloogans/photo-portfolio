@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import store from '../../stores/store'
-import IosOptions from 'react-ionicons/lib/IosOptions'
 import Preset from './preset/Preset'
 import presets_list from './presets-list'
 

@@ -3,7 +3,6 @@ import Grid from './grid/Grid'
 import FullImage from './full-image/FullImage'
 import { observer } from 'mobx-react'
 import store from '../../stores/store'
-import * as mobx from 'mobx'
 
 const Instagram = observer(
   class Instagram extends Component {
@@ -20,7 +19,7 @@ const Instagram = observer(
           </div>
         )
       } else {
-        return 'Loading'
+        return 'Loading...'
       }
     }
   }

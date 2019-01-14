@@ -1,22 +1,18 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import store from '../../stores/store'
-import * as mobx from 'mobx'
 
 const About = observer(
   class About extends Component {
 
-    componentDidMount() {
-      store.current_page['color'] = '#0F1A2B'
-    }
+    componentDidMount() { store.current_page['color'] = '#0F1A2B' }
 
     render() {
       if (store.instagram_user) {
-        const user = mobx.toJS(store.instagram_user)
         return (
           <section className='section__container animate__fade--in'>
             <div className='about__cover animate__fade-in--long'>
-              <img src='/images/self.png' />
+              <img src='/images/self.png' alt='James Thomas' />
             </div>
             <h2>
               Photographer // Graphic Artist

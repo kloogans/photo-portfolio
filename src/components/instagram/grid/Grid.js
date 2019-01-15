@@ -4,6 +4,7 @@ import { observer } from 'mobx-react'
 import store from '../../../stores/store'
 import { withRouter } from 'react-router-dom'
 import moment from 'moment'
+import MdHeart from 'react-ionicons/lib/MdHeart'
 
 const Grid = observer(
   class Grid extends Component {
@@ -26,7 +27,9 @@ const Grid = observer(
                       </p>
                       <div className='insta-grid__social-stats'>
                         <p>
-                          <i className='fas fa-heart' />
+                          <MdHeart fontSize="1.1rem"
+                            color={v.likes.count >= 1000 ? '#e66e4e' : 'white'}
+                            beat={v.likes.count >= 1000 ? true : false} />
                           &nbsp;{store.formatNum(v.likes.count)}
                         </p>
                         <p>

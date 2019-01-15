@@ -15,12 +15,12 @@ const About = observer(
               <img src='/images/self.png' alt='James Thomas' />
             </div>
             <h2>
-              Photographer // Graphic Artist
+              Photographer // Digital Artist
             </h2>
             <div className='about__description'>
               <p>
-                Addicted to coffee, podcasts, and cats.
-                Currently located in Tampa Bay, FL.
+                Computer addict. Space enthusiast. Lover of the outdoors. I take photos
+                and create photo manipulative art via Photoshop and Lightroom.
               </p>
             </div>
             <div className='about__links'>

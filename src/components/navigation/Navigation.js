@@ -16,7 +16,9 @@ const Navigation = observer(
       const width = window.innerWidth
       return (
         <nav style={{ backgroundColor: `${store.current_page.color}` }}
-             className={store.shrink && width > 768 ? 'navigation__container hidden' : 'navigation__container'}>
+             className={store.shrink && width > 768 || store.full_image.is_active || store.popover.is_active
+                         ? 'navigation__container hidden'
+                         : 'navigation__container'}>
           <div className='navigation__inner'>
             <div className='navigation__link'>
               <div className='navigation__tooltip'>
@@ -44,7 +46,7 @@ const Navigation = observer(
             </div>
             <div className='navigation__link'>
               <div className='navigation__tooltip'>
-                Contact
+                Videos
               </div>
               <button>
                 <IosSend color='white' />

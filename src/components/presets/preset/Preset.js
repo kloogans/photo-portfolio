@@ -1,5 +1,7 @@
 import React from 'react'
 import { observer } from 'mobx-react'
+import store from '../../../stores/store'
+import Popover from '../../shared/popover/Popover'
 
 const Preset = observer(p => (
   <div className='preset__item'>
@@ -8,15 +10,16 @@ const Preset = observer(p => (
       <h3 className='text text--small text--no-padding'>
         {p.title}
       </h3>
-      <button className='text text--medium text--regular'>
+      <button className='text text--small text--regular text--uppercase'>
         <i className='fas fa-download' />
-        Download
+        &nbsp;Download
       </button>
-      <button className='text text--medium text--regular'>
+      <button onClick={store.togglePopover} className='text text--small text--regular text--uppercase'>
         <i className='fas fa-info-circle' />
-        Details
+        &nbsp;Details
       </button>
     </div>
+    <Popover />
   </div>
 ))
 

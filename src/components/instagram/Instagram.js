@@ -12,7 +12,7 @@ const Instagram = observer(
       if (store.instagram) {
         return (
           <div className={store.loading || page !== 'photos'
-                          ? 'instagram__wrapper'
+                          ? 'instagram__wrapper hidden'
                           : 'instagram__wrapper animate__fade-in--long'}>
             <Grid />
             {store.full_image.is_active && <FullImage />}

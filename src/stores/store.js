@@ -22,6 +22,10 @@ class Store {
     color: '#202B36'
   }
 
+  popover = {
+    is_active: false
+  }
+
   access_token = '2140277165.02b5921.b5c752fc1ca8456b817fb25dbc780d10'
 
   async getInstaData() {
@@ -119,7 +123,12 @@ class Store {
   }
 
   formatNum = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  
+
+  togglePopover = () => {
+    console.log('toggle')
+    this.popover.is_active = !this.popover.is_active
+  }
+
 }
 
 decorate(Store, {
@@ -131,6 +140,7 @@ decorate(Store, {
   close_full: observable,
   shrink: observable,
   current_page: observable,
+  popover: observable,
   pushNewRoute: action,
   getInstaData: action,
   getSelfData: action,
@@ -140,7 +150,8 @@ decorate(Store, {
   scrollTop: action,
   changeCurrentPage: action,
   handleScroll: action,
-  formatNum: action
+  formatNum: action,
+  togglePopover: action
 })
 
 const store = new Store()

@@ -1,0 +1,40 @@
+@import '../../../styles/shared/mixins';
+@import '../../../styles/shared/variables';
+
+.popover {
+
+  &__container {
+    @include flex(column, center, center);
+    @include size(100%, 100vh);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+
+  &__controls {
+    @include flex(row, flex-end, center);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 5px;
+    box-sizing: border-box;
+
+    button {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      transform: scale(1);
+      transition: all .2s ease;
+
+      &:focus,
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+  }
+}

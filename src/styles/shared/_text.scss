@@ -32,4 +32,8 @@
   &--no-padding {
     padding: 0 !important;
   }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
 }

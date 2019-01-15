@@ -81,6 +81,7 @@ $max-columns: 12;
     width: 100%;
 
     p, a {
+      @include flex(row, center, center);
       margin: 0;
       box-sizing: border-box;
       padding: 0 10px;

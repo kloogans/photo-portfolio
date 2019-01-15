@@ -9,8 +9,21 @@
     @include size(300px, 300px);
     cursor: pointer;
 
+    &:first-child {
+      margin-right: 8px;
+    }
+
+    &:last-child {
+      cursor: default;
+
+      .preset__overlay {
+        display: none;
+      }
+    }
+
     @media (max-width: 768px) {
       @include size(90%, 90%);
+      margin-right: 0 !important;
     }
 
     img {
@@ -41,6 +54,14 @@
       padding: 10px;
       margin: 5px 0;
       min-width: 50%;
+      cursor: pointer;
+      transition: all .2s ease;
+
+      &:focus,
+      &:hover {
+        background: white;
+        color: $black;
+      }
     }
 
     &:focus,

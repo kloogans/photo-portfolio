@@ -16,7 +16,7 @@ const Navigation = observer(
       const width = window.innerWidth
       return (
         <nav style={{ backgroundColor: `${store.current_page.color}` }}
-             className={store.shrink && width > 768 || store.full_image.is_active || store.popover.is_active
+             className={(store.shrink && width > 768) || store.full_image.is_active || store.popover.is_active
                          ? 'navigation__container hidden'
                          : 'navigation__container'}>
           <div className='navigation__inner'>

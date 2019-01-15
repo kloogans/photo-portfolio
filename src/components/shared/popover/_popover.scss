@@ -6,10 +6,6 @@
   &__container {
     @include flex(column, center, center);
     @include size(100%, 100vh);
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
   }
 
   &__controls {
@@ -35,6 +31,13 @@
       &:hover {
         transform: scale(1.05);
       }
+    }
+  }
+
+  &__content {
+
+    img {
+      max-width: 300px;
     }
   }
 }

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Instagram from './components/instagram/Instagram'
 import About from './components/about/About'
 import Presets from './components/presets/Presets'
+import Popover from './components/shared/popover/Popover'
 import TopBar from './components/top-bar/TopBar'
 import store from './stores/store'
 import { observer } from 'mobx-react'
@@ -43,6 +44,7 @@ const App = observer(
                   <Route path='/photo/:id' component={Instagram} />
                   <Route path='/about' component={About} />
                   <Route path='/presets' component={Presets} />
+                  <Route path='/presets/:slug' component={Popover} />
                 </Switch>
               </div>
             </div>

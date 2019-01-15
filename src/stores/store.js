@@ -23,7 +23,8 @@ class Store {
   }
 
   popover = {
-    is_active: false
+    is_active: false,
+    selected_preset: {}
   }
 
   access_token = '2140277165.02b5921.b5c752fc1ca8456b817fb25dbc780d10'

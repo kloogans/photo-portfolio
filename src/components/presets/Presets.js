@@ -3,13 +3,17 @@ import { observer } from 'mobx-react'
 import store from '../../stores/store'
 import Preset from './preset/Preset'
 import presets_list from './presets-list'
-import Popover from '../shared/popover/Popover'
 
 const Presets = observer(
   class Presets extends Component {
 
     componentDidMount() {
       store.current_page['color'] = '#2b120f'
+    }
+
+    handlePresetRoute = slug => {
+      this.props.history.push(`/presets/${slug}`)
+      store.togglePopover()
     }
 
     render() {
@@ -32,11 +36,15 @@ const Presets = observer(
           </div>
           <div className='presets__grid'>
             {
-              presets_list.map(p => {
+              presets_list.map((p, i) => {
                 return <Preset key={p.id}
                                cover_img={p.cover_img_url}
                                title={p.title}
-                               download_url={p.download_url} />
+                               keyy={p.key}
+                               download_url={p.download_url}
+                               descripton={p.description}
+                               index={i}
+                               handlePresetRoute={this.handlePresetRoute}/>
               })
             }
           </div>

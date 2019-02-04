@@ -49,9 +49,9 @@ const Navigation = observer(
               <div className='navigation__tooltip'>
                 Videos
               </div>
-              <a>
+              <Link to='/videos'>
                 <IosVideocam color='white' />
-              </a>
+              </Link>
             </div>
           </div>
         </nav>

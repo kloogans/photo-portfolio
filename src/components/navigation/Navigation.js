@@ -6,6 +6,7 @@ import IosApps from 'react-ionicons/lib/IosApps'
 import IosOptions from 'react-ionicons/lib/IosOptions'
 import IosContact from 'react-ionicons/lib/IosContact'
 import IosSend from 'react-ionicons/lib/IosSend'
+import IosVideocam from 'react-ionicons/lib/IosVideocam'
 
 const Navigation = observer(
   class Navigation extends Component {
@@ -48,9 +49,9 @@ const Navigation = observer(
               <div className='navigation__tooltip'>
                 Videos
               </div>
-              <button>
-                <IosSend color='white' />
-              </button>
+              <a>
+                <IosVideocam color='white' />
+              </a>
             </div>
           </div>
         </nav>

@@ -10,7 +10,7 @@ const Logo = observer(p => {
              ? 'logo logo--loading'
              : store.shrink
                ? 'logo logo--clickable'
-               : ' logo'
+               : 'logo'
          } />
   )
 })

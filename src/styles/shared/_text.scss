@@ -21,8 +21,15 @@
     font-size: 2rem !important;
   }
 
-  &--regular {
-    font-weight: 500 !important;
+  &__weight {
+
+    &--light {
+      font-weight: 300 !important;
+    }
+
+    &--regular {
+      font-weight: 500 !important;
+    }
   }
 
   &--underline {

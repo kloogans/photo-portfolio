@@ -8,6 +8,7 @@ import Presets from './components/presets/Presets'
 import Popover from './components/shared/popover/Popover'
 import TopBar from './components/top-bar/TopBar'
 import store from './stores/store'
+import videos from './components/videos/stores/videos'
 import { observer } from 'mobx-react'
 import Navigation from './components/navigation/Navigation'
 import Div100vh from 'react-div-100vh'
@@ -18,6 +19,7 @@ const App = observer(
     componentDidMount() {
       store.getInstaData()
       store.getSelfData()
+      videos.handleYoutubeData()
       window.addEventListener("scroll", store.handleScroll)
     }
 

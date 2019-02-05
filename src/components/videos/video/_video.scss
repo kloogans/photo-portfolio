@@ -6,8 +6,9 @@
   &__container {
     position: relative;
     width: 100%;
-    overflow: hidden;
+    margin: 10px 0;
     padding-top: 56.25%;
+    overflow: hidden;
 
     iframe {
       position: absolute;

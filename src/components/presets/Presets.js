@@ -22,7 +22,7 @@ const Presets = observer(
                             ? 'hidden'
                             : 'section__container animate__fade-in--long'}>
           <div className='presets__title-container'>
-            <h2 className='presets__title text--large text--underline text--no-padding'>
+            <h2 className='presets__title text--large text--underline text__weight--regular text--no-padding'>
               Presets
             </h2>
             <p className='presets__text text--small text--no-padding'

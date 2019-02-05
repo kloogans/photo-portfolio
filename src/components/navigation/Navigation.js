@@ -39,18 +39,18 @@ const Navigation = observer(
             </div>
             <div className='navigation__link'>
               <div className='navigation__tooltip'>
-                About
-              </div>
-              <Link to='/about' onClick={() => this.changePage('about', '#0F1A2B')}>
-                <IosContact color='white' />
-              </Link>
-            </div>
-            <div className='navigation__link'>
-              <div className='navigation__tooltip'>
                 Videos
               </div>
               <Link to='/videos'>
                 <IosVideocam color='white' />
+              </Link>
+            </div>
+            <div className='navigation__link'>
+              <div className='navigation__tooltip'>
+                About
+              </div>
+              <Link to='/about' onClick={() => this.changePage('about', '#0F1A2B')}>
+                <IosContact color='white' />
               </Link>
             </div>
           </div>

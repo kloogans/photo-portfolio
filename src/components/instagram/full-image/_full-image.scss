@@ -155,4 +155,40 @@
       }
     }
   }
+
+  &__share-bar {
+    @include flex(row, center, center);
+    width: 100%;
+    position: absolute;
+    top: -59px;
+    left: 0;
+    background: transparentize($blue--dark, 1);
+    padding: 6px 0;
+
+    @media (max-width: 768px) {
+      top: 50px;
+    }
+
+    input {
+      background: rgb(224, 224, 224);
+      border: 0;
+      outline: 0;
+      font-family: $font--main;
+      font-size: 1rem;
+      color: $black;
+      height: 50px;
+      padding: 0 7px;
+      min-width: 200px;
+    }
+
+    button {
+      @include size(50px, 50px);
+      color: $black;
+      font-size: 1rem;
+      border: none;
+      background: white;
+      margin: 0;
+      padding: 0;
+    }
+  }
 }

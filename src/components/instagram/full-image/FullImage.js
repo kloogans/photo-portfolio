@@ -7,6 +7,7 @@ import Swipe from 'react-easy-swipe'
 
 const FullImage = observer(
   class FullImage extends Component {
+    state = { copied: false }
 
     componentDidMount() {
       const data = mobx.toJS(store.instagram.data)
@@ -22,6 +23,19 @@ const FullImage = observer(
     handleFullImageClose = () => {
       store.closeFullImage()
       this.props.history.push('/')
+    }
+
+    selectShareLink = e => {
+      const input = this.refs.share_input
+      input.setSelectionRange(0, input.value.length)
+    }
+
+    copyShareUrl = () => {
+      const input = this.refs.share_input
+      input.select()
+      document.execCommand('copy')
+      input.focus()
+      this.setState({ copied: true })
     }
 
     render() {
@@ -79,6 +93,17 @@ const FullImage = observer(
                   </button>
                 </li>
               </ul>
+
+              <div className='full-image__share-bar animate__fade--in'>
+                <input type='text'
+                       readOnly
+                       ref='share_input'
+                       value={data[index].link}
+                       onClick={this.selectShareLink} />
+                 <button onClick={this.copyShareUrl} title='Click to copy'>
+                   <i className={this.state.copied ? 'fas fa-check' : 'fas fa-copy'} />
+                 </button>
+              </div>
             </div>
           </div>
         )

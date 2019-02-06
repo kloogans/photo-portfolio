@@ -10,8 +10,6 @@ const Videos = observer(
 
     componentDidMount() {
       store.current_page['color'] = '#240f2b'
-      // store.loading = true
-      // store.loading_complete = false
     }
 
     render() {
@@ -28,7 +26,6 @@ const Videos = observer(
               {
                 data.map(v => {
                   const video = v.snippet
-                  console.log(video)
                   return (
                     <article className='videos__video' key={video.resourceId.videoId}>
                       <h3 className='text text--medium text__weight--light'>

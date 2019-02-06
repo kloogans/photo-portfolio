@@ -12,7 +12,7 @@ const preset_list = [
     title: 'Coming Soon',
     cover_img_url: '/images/preset-packs/coming-soon.jpg',
     download_url: '/',
-    decription: 'None'
+    description: 'None'
   }
 ]
 

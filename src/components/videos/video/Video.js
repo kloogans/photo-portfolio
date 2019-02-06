@@ -1,8 +1,6 @@
 import React from 'react'
-import { observer } from 'mobx-react'
-import videos from '../stores/videos'
 
-const Video = observer(video => (
+const Video = video => (
   <div className='video__container'>
     <iframe src={`https://www.youtube.com/embed/${video.id}?rel=0&amp;showinfo=0`}
             frameBorder="0"
@@ -10,6 +8,6 @@ const Video = observer(video => (
             allowFullScreen>
     </iframe>
   </div>
-))
+)
 
 export default Video

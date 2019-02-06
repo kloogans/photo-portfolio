@@ -8,7 +8,7 @@ const Preset = observer(
 
     doStuff = (preset, path) => {
       this.props.handlePresetRoute(path)
-      store.popover.selectedPreset = { ...preset }
+      store.popover.selected_preset = {...preset}
       console.log(preset)
     }
 

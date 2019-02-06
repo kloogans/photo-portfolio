@@ -21,17 +21,29 @@ const About = observer(
               <p>
                 Computer addict. Space enthusiast. Lover of the outdoors. I take photos
                 and create photo manipulative art via Photoshop and Lightroom.
+                <a href='https://jamesobrien.io'
+                   title='James software development portfolio.'
+                   className='text text--medium text--underline'>
+                  I also write code.
+                </a>
               </p>
             </div>
             <div className='about__links'>
-              <a href='https://instagram.com/jamesthomasvision'>
+              <a href='https://instagram.com/jamesthomasvision'
+                 title='Instagram'>
                 <i className='fab fa-instagram' />
               </a>
-              <a href='https://twitter.com/notjamesobrien'>
+              <a href='https://twitter.com/notjamesobrien'
+                 title='Twitter'>
                 <i className='fab fa-twitter' />
               </a>
-              <a href='https://jamesobrien.io'>
+              <a href='https://jamesobrien.io'
+                 title='Software Development Portfolio'>
                 <i className='fas fa-code' />
+              </a>
+              <a href='mailto:jamesthomasvision@gmail.com'
+                 title='Email'>
+                <i className='fas fa-envelope' />
               </a>
             </div>
           </section>

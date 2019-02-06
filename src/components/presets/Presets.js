@@ -3,6 +3,7 @@ import { observer } from 'mobx-react'
 import store from '../../stores/store'
 import Preset from './preset/Preset'
 import presets_list from './presets-list'
+import Popover from '../shared/popover/Popover'
 
 const Presets = observer(
   class Presets extends Component {
@@ -42,13 +43,13 @@ const Presets = observer(
                                title={p.title}
                                keyy={p.key}
                                download_url={p.download_url}
-                               descripton={p.description}
+                               description={p.description}
                                index={i}
                                handlePresetRoute={this.handlePresetRoute}/>
               })
             }
           </div>
-          {/* <Popover /> */}
+          <Popover />
         </section>
       )
     }

@@ -7,7 +7,12 @@ import Swipe from 'react-easy-swipe'
 
 const FullImage = observer(
   class FullImage extends Component {
-    state = { copied: false }
+    state = {
+      copied_1: false,
+      copied_2: false,
+      show_share: false,
+      animate_blur: false
+    }
 
     componentDidMount() {
       const data = mobx.toJS(store.instagram.data)
@@ -25,17 +30,40 @@ const FullImage = observer(
       this.props.history.push('/')
     }
 
+    toggleShare = () => {
+      if (this.state.show_share) {
+        this.exitShare()
+      } else {
+        this.setState({ show_share: true })
+      }
+    }
+
+    exitShare= () => {
+      this.setState({ animate_blur: true })
+      setTimeout(() => {
+        this.setState({ show_share: false, animate_blur: false })
+      }, 500)
+    }
+
     selectShareLink = e => {
       const input = this.refs.share_input
       input.setSelectionRange(0, input.value.length)
     }
 
-    copyShareUrl = () => {
-      const input = this.refs.share_input
+    copyShareUrlOne = () => {
+      const input = this.refs.share_input_1
       input.select()
       document.execCommand('copy')
       input.focus()
-      this.setState({ copied: true })
+      this.setState({ copied_1: true, copied_2: false })
+    }
+
+    copyShareUrlTwo = () => {
+      const input = this.refs.share_input_2
+      input.select()
+      document.execCommand('copy')
+      input.focus()
+      this.setState({ copied_1: false, copied_2: true })
     }
 
     render() {
@@ -53,7 +81,13 @@ const FullImage = observer(
               onSwipeLeft={() => this.handleImageSelection('next', data[index].id)}
               onSwipeRight={() => this.handleImageSelection('previous', data[index].id)}>
 
-              <div className='full-image__image'>
+              <div className={
+                    this.state.show_share
+                      ? this.state.animate_blur
+                        ? 'full-image__image full-image--inactive-blur'
+                        : 'full-image__image full-image--active-blur'
+                      : 'full-image__image'
+                    }>
                   <img key={index}
                        src={data[store.full_image.index].images.standard_resolution.url}
                        className='animate__fade-in--long'
@@ -79,8 +113,9 @@ const FullImage = observer(
                   &nbsp;{store.formatNum(data[index].comments.count)}
                 </li>
                 <li>
-                  <i className='fas fa-users' title='Engagement Rate' />
-                  &nbsp;{Math.ceil(engagement_rate)}%
+                  <button onClick={this.toggleShare}>
+                    <i className='fas fa-share' title='Share this Image' />
+                  </button>
                 </li>
                 <li>
                   <a href={data[index].link}>
@@ -94,17 +129,68 @@ const FullImage = observer(
                 </li>
               </ul>
 
-              <div className='full-image__share-bar animate__fade--in'>
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" className="blur-svg">
+                <defs>
+                    <filter id="blur-filter">
+                        <feGaussianBlur stdDeviation="15"></feGaussianBlur>
+                    </filter>
+                </defs>
+            </svg>
+
+          </div>
+
+          <div className={this.state.show_share ? 'full-image__share-bar animate__fade--in' : 'remove'}>
+            <div onClick={this.state.show_share ? this.exitShare : null}
+                 className='full-image__share-underlay' />
+             <span className={
+               this.state.show_share
+                 ? this.state.animate_blur
+                   ? 'full-image--inputs-inactive'
+                   : 'full-image--inputs-active'
+                 : null
+             }>
+               <i className='fas fa-desktop share-icon' />
+               <input type='text'
+                 readOnly
+                 ref='share_input_1'
+                 value={window.location.href}
+                 onClick={this.selectShareLink}/>
+               <button onClick={this.copyShareUrlOne}
+                 title='Click to copy'
+                 >
+                  <i className={this.state.copied_1 ? 'fas fa-check' : 'fas fa-copy'}
+                     style={this.state.copied_1 ? { color: 'rgb(65, 242, 99)' } : null}/>
+                </button>
+              </span>
+              <span className={
+                this.state.show_share
+                  ? this.state.animate_blur
+                    ? 'full-image--inputs-inactive'
+                    : 'full-image--inputs-active'
+                  : null
+              }>
+                <i className='fab fa-instagram share-icon' />
                 <input type='text'
-                       readOnly
-                       ref='share_input'
-                       value={data[index].link}
-                       onClick={this.selectShareLink} />
-                 <button onClick={this.copyShareUrl} title='Click to copy'>
-                   <i className={this.state.copied ? 'fas fa-check' : 'fas fa-copy'} />
-                 </button>
-              </div>
+                  readOnly
+                  ref='share_input_2'
+                  value={data[index].link}
+                  onClick={this.selectShareLink}/>
+                  <button onClick={this.copyShareUrlTwo}
+                    title='Click to copy'>
+                    <i className={this.state.copied_2 ? 'fas fa-check' : 'fas fa-copy'}
+                       style={this.state.copied_2 ? { color: 'rgb(65, 242, 99)' } : null} />
+                  </button>
+              </span>
             </div>
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" className="blur-svg">
+            <defs>
+              <filter id="blur-filter-2">
+                <feGaussianBlur stdDeviation="15"></feGaussianBlur>
+              </filter>
+            </defs>
+          </svg>
+
+
           </div>
         )
       } else {

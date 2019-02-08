@@ -34,7 +34,11 @@ const FullImage = observer(
       if (this.state.show_share) {
         this.exitShare()
       } else {
-        this.setState({ show_share: true })
+        this.setState({
+          show_share: true,
+          copied_1: false,
+          copied_2: false
+        })
       }
     }
 
@@ -45,8 +49,13 @@ const FullImage = observer(
       }, 500)
     }
 
-    selectShareLink = e => {
-      const input = this.refs.share_input
+    selectShareLink1 = e => {
+      const input = this.refs.share_input_1
+      input.setSelectionRange(0, input.value.length)
+    }
+
+    selectShareLink2 = e => {
+      const input = this.refs.share_input_2
       input.setSelectionRange(0, input.value.length)
     }
 
@@ -154,7 +163,7 @@ const FullImage = observer(
                  readOnly
                  ref='share_input_1'
                  value={window.location.href}
-                 onClick={this.selectShareLink}/>
+                 onClick={this.selectShareLink1}/>
                <button onClick={this.copyShareUrlOne}
                  title='Click to copy'
                  >
@@ -174,7 +183,7 @@ const FullImage = observer(
                   readOnly
                   ref='share_input_2'
                   value={data[index].link}
-                  onClick={this.selectShareLink}/>
+                  onClick={this.selectShareLink2}/>
                   <button onClick={this.copyShareUrlTwo}
                     title='Click to copy'>
                     <i className={this.state.copied_2 ? 'fas fa-check' : 'fas fa-copy'}

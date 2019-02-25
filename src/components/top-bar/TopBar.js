@@ -6,10 +6,7 @@ import store from '../../stores/store'
 const TopBar = observer(
   class TopBar extends Component {
 
-    scrollToTop = () => {
-      window.scroll({ top: 0, behavior: 'smooth' })
-      console.log('scroll')
-    }
+    scrollToTop = () => window.scroll({ top: 0, behavior: 'smooth' })
 
     render() {
       return (

@@ -24,14 +24,13 @@ const Presets = observer(
         <SectionContainer title='Presets'
                           description='Presets can help make your life in post a little bit easier.'
                           warning='Note: You will most likely want to make further adjustments to fit your image.'>
-  
+
           <div className='presets__grid'>
             {
               presets_list.map((p, i) => {
                 return <Preset key={p.id}
                                cover_img={p.cover_img_url}
                                title={p.title}
-                               keyy={p.key}
                                download_url={p.download_url}
                                description={p.description}
                                index={i}

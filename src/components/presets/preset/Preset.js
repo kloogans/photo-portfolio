@@ -13,9 +13,9 @@ const Preset = observer(
     }
 
     render() {
-      const p = this.props
-      let title = p.title
-      const path = (title.split(' ').join('-')).toLowerCase()
+      const p = this.props,
+            title = p.title,
+            path = (title.split(' ').join('-')).toLowerCase()
       return (
         <div className='preset__item'>
           <img src={p.cover_img} alt={p.title} />

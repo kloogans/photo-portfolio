@@ -8,7 +8,6 @@ const Popover = observer(
 
     render() {
       const popover = mobx.toJS(store.popover)
-      console.log('popover: ', popover)
       return (
         <div style={{ backgroundColor: `${store.current_page.color}` }}
              className={popover.is_active ? 'popover__container animate__fade-in' : 'remove'}>

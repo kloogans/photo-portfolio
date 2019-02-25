@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-import './App.scss'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Navigation from './components/navigation/Navigation'
+import Popover from './components/shared/popover/Popover'
 import Instagram from './components/instagram/Instagram'
+import videos from './components/videos/stores/videos'
+import Presets from './components/presets/Presets'
+import TopBar from './components/top-bar/TopBar'
 import Videos from './components/videos/Videos'
 import About from './components/about/About'
-import Presets from './components/presets/Presets'
-import Popover from './components/shared/popover/Popover'
-import TopBar from './components/top-bar/TopBar'
-import store from './stores/store'
-import videos from './components/videos/stores/videos'
-import { observer } from 'mobx-react'
-import Navigation from './components/navigation/Navigation'
 import Div100vh from 'react-div-100vh'
+import { observer } from 'mobx-react'
+import store from './stores/store'
+import './App.scss'
 
 const App = observer(
   class App extends Component {
@@ -31,7 +31,6 @@ const App = observer(
                  style={{ backgroundColor: `${store.current_page.color}` }}>
               <div className='app__inner'
                    style={{ backgroundColor: `${store.current_page.color}` }}>
-
                 <div style={{ backgroundColor: `${store.current_page.color}` }}
                      className={store.loading ? 'loading__wrapper' : 'remove'}>
                   <div style={{ backgroundColor: `${store.current_page.color}` }}
@@ -39,9 +38,11 @@ const App = observer(
                                    ? 'app--loading animate__fade--out'
                                    : 'app--loading'} />
                 </div>
+
                 <TopBar />
                 <Navigation />
                 <div ref='scroll' />
+
                 <Switch>
                   <Route exact path='/' component={Instagram} />
                   <Route path='/photo/:id' component={Instagram} />
@@ -50,6 +51,7 @@ const App = observer(
                   <Route path='/presets/:slug' component={Popover} />
                   <Route path='/videos' component={Videos} />
                 </Switch>
+
               </div>
             </div>
           </Div100vh>

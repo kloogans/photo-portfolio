@@ -16,7 +16,7 @@ const TopBar = observer(
         <div className={!store.full_image.is_active || !store.popover.is_active ? 'top-bar__container' : 'remove'}
              style={store.popover.is_active ? {display: 'none'} : null}>
           <div className={
-            store.shrink
+            store.shrink_logo
               ? store.full_image.is_active
                 ? 'remove'
                 : 'top-bar__logo-box top-bar--shrink'

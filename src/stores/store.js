@@ -9,14 +9,19 @@ class Store {
   instagram = null
   instagram_user = null
 
+  instagram = {
+    data: null,
+    user: null
+  }
+
+  close_full = true
   full_image = {
     is_active: false,
     index: 0
   }
 
-  shrink = false
+  shrink_logo = false
 
-  close_full = true
 
   current_page = {
     name: 'photos',
@@ -30,82 +35,82 @@ class Store {
 
   access_token = IG_ACCESS_TOKEN
 
+  // Get IG Feed
   async getInstaData() {
     const url = `https://api.instagram.com/v1/users/self/media/recent?access_token=${this.access_token}`,
-          data = await window.fetch(url)
+          data = await fetch(url)
     try {
       const insta_data = await data.json()
-      if (insta_data.meta.code === 400) {
-        this.loading = true
-        this.loading_complete = false
+      if (insta_data) {
+        if (insta_data.meta.code === 400) {
+          this.loading = true
+          this.loading_complete = false
+        }
+        this.instagram.data = insta_data
+        this.finishLoading()
+        this.detectUrlWithImage()
       }
-      this.instagram = insta_data
-      this.finishLoading()
-      this.detectUrlWithImage()
     } catch(e) {
       console.error(e)
     }
   }
 
+  // Get IG Profile Data
   async getSelfData() {
     const url = `https://api.instagram.com/v1/users/self?access_token=${this.access_token}`,
-          data = await window.fetch(url)
+          data = await fetch(url)
     try {
       const insta_data = await data.json()
       this.instagram_user = await insta_data
+      this.instagram.user = await insta_data
     } catch(e) {
       console.error(e)
     }
   }
 
-  // If the URL contains a valid image ID, toggle the full image slider
+  // If the current URL contains a valid image ID, toggle the full image slider
   detectUrlWithImage = () => {
     const path = window.location.pathname,
           id = path.replace(/^(?:\/\/|[^/]+)*\/[^/]+\//,""),
-          data = mobx.toJS(this.instagram),
+          data = mobx.toJS(this.instagram.data),
           posts = data.data
     let index
     if (posts) index = posts.map(p => p.id).indexOf(id)
-    if (id.length > 1 && index >= 0) this.openFullImage(index)
+    if (id.length > 1 && index >= 0) this.toggleFullImageSlider(index)
   }
 
-  openFullImage = i => {
-    this.close_full = false
-    this.full_image = {
-      is_active: true,
-      index: i
+  toggleFullImageSlider = i => {
+    if (this.close_full) {
+      this.close_full = false
+      this.full_image = {
+        is_active: true,
+        index: i
+      }
+    } else {
+      this.close_full = true
+      setTimeout(() => {
+        this.full_image = {
+          is_active: false,
+          index: 0
+        }
+      }, 300)
     }
   }
 
-  closeFullImage = () => {
-    this.close_full = true
-    setTimeout(() => {
-      this.full_image = {
-        is_active: false,
-        index: 0
-      }
-    }, 300)
-  }
-
-  pagination = direction => {
-    if (direction === 'next' && this.full_image.index <= this.instagram.data.length - 1) {
-      if (this.full_image.index === this.instagram.data.length - 1) this.full_image.index = 0
+  handlePagination = direction => {
+    if (direction === 'next' && this.full_image.index <= this.instagram.data.data.length - 1) {
+      if (this.full_image.index === this.instagram.data.data.length - 1) this.full_image.index = 0
       this.full_image.index++
     }
 
     if (direction === 'previous' && this.full_image.index >= 0) {
-      if (this.full_image.index === 0) this.full_image.index = this.instagram.data.length - 1
+      if (this.full_image.index === 0) this.full_image.index = this.instagram.data.data.length - 1
       this.full_image.index--
     }
   }
 
-  finishLoading = () => {
-    this.loading_complete = true
-    setTimeout(() => {
-      this.loading = false
-    }, 500)
-  }
 
+  // Animate background colors between components
   changeCurrentPage = (page, color) => {
     this.current_page = {
       name: page,
@@ -113,22 +118,29 @@ class Store {
     }
   }
 
+  // Trigger loading exit animation
+  finishLoading = () => {
+    this.loading_complete = true
+    setTimeout(() => {
+      this.loading = false
+    }, 500)
+  }
+
+  // When the user starts scrolling, shrink the top logo
   handleScroll = () => {
-    const distanceY = window.pageYOffset || document.documentElement.scrollTop,
-          shrinkOn = 7
-    if (distanceY > shrinkOn) {
-      this.shrink = true
+    const distance_Y = window.pageYOffset || document.documentElement.scrollTop,
+          shrink_on = 7
+    if (distance_Y > shrink_on) {
+      this.shrink_logo = true
     } else {
-      this.shrink = false
+      this.shrink_logo = false
     }
   }
 
+  // Add commas to larger integers
   formatNum = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 
-  togglePopover = () => {
-    console.log('toggle')
-    this.popover.is_active = !this.popover.is_active
-  }
+  togglePopover = () => this.popover.is_active = !this.popover.is_active
 
 }
 
@@ -139,15 +151,14 @@ decorate(Store, {
   instagram_user: observable,
   full_image: observable,
   close_full: observable,
-  shrink: observable,
+  shrink_logo: observable,
   current_page: observable,
   popover: observable,
   pushNewRoute: action,
   getInstaData: action,
   getSelfData: action,
-  openFullImage: action,
-  closeFullImage: action,
-  pagination: action,
+  toggleFullImageSlider: action,
+  handlePagination: action,
   scrollTop: action,
   changeCurrentPage: action,
   handleScroll: action,

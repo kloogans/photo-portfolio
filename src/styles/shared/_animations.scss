@@ -1,17 +1,47 @@
-.animate__fade--in {
-  animation: fade-in 0.3s ease;
-  animation-fill-mode: forwards;
+
+
+.animate {
+
+  // Fades--------------------------------------------------------
+  &__fade--in {
+    animation: fade-in 0.3s ease;
+    animation-fill-mode: forwards;
+  }
+
+  &__fade--out {
+    animation: fade-out 0.5s ease;
+    animation-fill-mode: forwards;
+  }
+
+  &__fade-in--long {
+    animation: fade-in 0.7s ease;
+    animation-fill-mode: forwards;
+  }
+
+  // Blurs--------------------------------------------------------
+  &__active-blur {
+    animation: blur--in 0.5s ease;
+    animation-fill-mode: forwards;
+  }
+
+  &__inactive-blur {
+    animation: blur--out 0.5s ease;
+    animation-fill-mode: forwards;
+  }
+
+  // Input Blurs--------------------------------------------------
+  &__input--blur-in {
+    animation: inputs-blur--in 0.5s ease;
+    animation-fill-mode: forwards;
+  }
+
+  &__input--blur-out  {
+    animation: inputs-blur--out 0.5s ease;
+    animation-fill-mode: forwards;
+  }
 }
 
-.animate__fade--out {
-  animation: fade-out 0.5s ease;
-  animation-fill-mode: forwards;
-}
-
-.animate__fade-in--long {
-  animation: fade-in 0.7s ease;
-  animation-fill-mode: forwards;
-}
+// Fades----------------------------------------------------------
 
 @keyframes fade-in {
   from { opacity: 0; }
@@ -21,4 +51,83 @@
 @keyframes fade-out {
   from { opacity: 1; }
   to { opacity: 0; }
+}
+
+// Blurs
+
+@keyframes blur--in {
+  from {
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+    -webkit-filter: url(#blur-filter);
+    filter: url(#blur-filter);
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+
+  to {
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='15');
+    -webkit-filter: url(#blur-filter);
+    filter: url(#blur-filter);
+    -webkit-filter: blur(15px);
+    filter: blur(15px);
+  }
+}
+
+@keyframes blur--out {
+  from {
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='15');
+    -webkit-filter: url(#blur-filter);
+    filter: url(#blur-filter);
+    -webkit-filter: blur(15px);
+    filter: blur(15px);
+  }
+
+  to {
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+    -webkit-filter: url(#blur-filter);
+    filter: url(#blur-filter);
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+}
+
+// Input Blurs-------------------------------------------------------
+@keyframes inputs-blur--in {
+  from {
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='30');
+    -webkit-filter: url(#blur-filter-2);
+    filter: url(#blur-filter-2);
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+  }
+
+  to {
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+    -webkit-filter: url(#blur-filter-2);
+    filter: url(#blur-filter-2);
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes inputs-blur--out {
+  0% {
+    opacity: 1;
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='0');
+    -webkit-filter: url(#blur-filter-2);
+    filter: url(#blur-filter-2);
+    -webkit-filter: blur(0);
+    filter: blur(0);
+  }
+
+  30% { opacity: 1; }
+
+  100% {
+    opacity: 0;
+    filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius='30');
+    -webkit-filter: url(#blur-filter-2);
+    filter: url(#blur-filter-2);
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+  }
 }

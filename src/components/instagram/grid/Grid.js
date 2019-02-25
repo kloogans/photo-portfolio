@@ -1,19 +1,19 @@
 import React, { Component } from 'react'
-import * as mobx from 'mobx'
-import { observer } from 'mobx-react'
-import store from '../../../stores/store'
-import { withRouter } from 'react-router-dom'
-import moment from 'moment'
 import MdHeart from 'react-ionicons/lib/MdHeart'
+import { withRouter } from 'react-router-dom'
+import store from '../../../stores/store'
+import { observer } from 'mobx-react'
+import * as mobx from 'mobx'
+import moment from 'moment'
 
 const Grid = observer(
   class Grid extends Component {
 
-    toggleFullImage = index => store.openFullImage(index)
+    toggleFullImage = index => store.toggleFullImageSlider(index)
 
     render() {
-      if (store.instagram && store.instagram_user) {
-        const data = mobx.toJS(store.instagram),
+      if (store.instagram.data && store.instagram.user) {
+        const data = mobx.toJS(store.instagram.data),
               data_json = data.data,
               images = data_json.map((v, i) => {
                 const time = moment.unix(v.created_time).fromNow()

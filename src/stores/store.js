@@ -1,5 +1,6 @@
 import { observable, decorate, action } from 'mobx'
 import * as mobx from 'mobx'
+import IG_ACCESS_TOKEN from './keys'
 
 class Store {
   loading = true
@@ -27,30 +28,28 @@ class Store {
     selected_preset: {}
   }
 
-  access_token = '2140277165.02b5921.b5c752fc1ca8456b817fb25dbc780d10'
+  access_token = IG_ACCESS_TOKEN
 
   async getInstaData() {
-    const url = `https://api.instagram.com/v1/users/self/media/recent?access_token=${this.access_token}`
-    const data = await window.fetch(url)
+    const url = `https://api.instagram.com/v1/users/self/media/recent?access_token=${this.access_token}`,
+          data = await window.fetch(url)
     try {
       const insta_data = await data.json()
-      if (insta_data) {
-        if (insta_data.meta.code === 400) {
-          this.loading = true
-          this.loading_complete = false
-        }
-        this.instagram = insta_data
-        this.finishLoading()
-        this.detectUrlWithImage()
+      if (insta_data.meta.code === 400) {
+        this.loading = true
+        this.loading_complete = false
       }
+      this.instagram = insta_data
+      this.finishLoading()
+      this.detectUrlWithImage()
     } catch(e) {
       console.error(e)
     }
   }
 
   async getSelfData() {
-    const url = `https://api.instagram.com/v1/users/self?access_token=${this.access_token}`
-    const data = await window.fetch(url)
+    const url = `https://api.instagram.com/v1/users/self?access_token=${this.access_token}`,
+          data = await window.fetch(url)
     try {
       const insta_data = await data.json()
       this.instagram_user = await insta_data
@@ -59,6 +58,7 @@ class Store {
     }
   }
 
+  // If the URL contains a valid image ID, toggle the full image slider
   detectUrlWithImage = () => {
     const path = window.location.pathname,
           id = path.replace(/^(?:\/\/|[^/]+)*\/[^/]+\//,""),

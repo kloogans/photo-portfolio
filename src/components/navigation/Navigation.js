@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import IosApps from 'react-ionicons/lib/IosApps'
 import IosOptions from 'react-ionicons/lib/IosOptions'
 import IosContact from 'react-ionicons/lib/IosContact'
-import IosSend from 'react-ionicons/lib/IosSend'
 import IosVideocam from 'react-ionicons/lib/IosVideocam'
 
 const Navigation = observer(

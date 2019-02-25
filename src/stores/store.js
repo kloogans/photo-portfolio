@@ -61,7 +61,7 @@ class Store {
 
   detectUrlWithImage = () => {
     const path = window.location.pathname,
-          id = path.replace(/^(?:\/\/|[^\/]+)*\/[^\/]+\//,""),
+          id = path.replace(/^(?:\/\/|[^/]+)*\/[^/]+\//,""),
           data = mobx.toJS(this.instagram),
           posts = data.data
     let index

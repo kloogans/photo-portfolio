@@ -81,7 +81,6 @@ const FullImage = observer(
             profile = data_user.data,
             index = store.full_image.index
       if (data && profile) {
-        const engagement_rate = ((data[index].likes.count + data[index].comments.count) / profile.counts.followed_by) * 100
         return (
           <div className={store.close_full
                           ? 'full-image__wrapper animate__fade--out'

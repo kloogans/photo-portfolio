@@ -1,16 +1,20 @@
 import React, { Component } from 'react'
+import SectionContainer from '../shared/section/SectionContainer'
 import { observer } from 'mobx-react'
 import store from '../../stores/store'
 
 const About = observer(
   class About extends Component {
 
-    componentDidMount() { store.current_page['color'] = '#0F1A2B' }
+    componentDidMount() {
+      store.current_page['color'] = '#0F1A2B'
+      document.documentElement.style.backgroundColor = '#0F1A2B'
+    }
 
     render() {
       if (store.instagram_user) {
         return (
-          <section className='section__container animate__fade--in'>
+          <SectionContainer>
             <div className='about__cover animate__fade-in--long'>
               <img src='/images/self.png' alt='James Thomas' />
             </div>
@@ -46,7 +50,7 @@ const About = observer(
                 <i className='fas fa-envelope' />
               </a>
             </div>
-          </section>
+          </SectionContainer>
         )
       } else {
         return 'Loading...'

@@ -294,8 +294,10 @@
     }
 
     input {
+      appearance: none;
       background: rgb(224, 224, 224);
       border: 0;
+      border-radius: 0;
       outline: 0;
       font-family: $font--main;
       font-size: 1rem;

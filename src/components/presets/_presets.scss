@@ -5,30 +5,10 @@
 
 .presets {
 
-  &__title-container {
-    @include flex(column, center, flex-start);
-    width: 100%;
-    padding: 20px 0;
-    box-sizing: border-box;
-
-    @media (max-width: 768px) {
-      padding: 20px;
-    }
-  }
-
   &__grid {
     @include flex(row, center, center);
     flex-wrap: wrap;
     width: 100%;
     margin: 10px 0 20px 0;
-  }
-
-  &__title,
-  &__text {
-    width: 100% !important;
-    max-width: auto;
-    font-weight: 300;
-    text-align: left !important;
-    margin-top: 0 !important;
   }
 }

@@ -7,6 +7,11 @@ import store from '../../stores/store'
 const Instagram = observer(
   class Instagram extends Component {
 
+    componentDidMount() {
+      store.current_page['color'] = '#202B36'
+      document.documentElement.style.backgroundColor = '#202B36'
+    }
+
     render() {
       const page = store.current_page.name
       if (store.instagram) {

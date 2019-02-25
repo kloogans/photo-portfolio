@@ -1,4 +1,4 @@
-@import '../components/shared/popover/popover';
+// Components
 @import '../components/instagram/instagram';
 @import '../components/videos/videos';
 @import '../components/instagram/grid/grid';
@@ -8,13 +8,17 @@
 @import '../components/presets/presets';
 @import '../components/top-bar/top-bar';
 @import '../components/about/about';
+
+// Shared Components
+@import '../components/shared/popover/popover';
+@import '../components/shared/section/_section';
+
+// Shared SCSS
 @import './shared/variables';
 @import './shared/mixins';
 @import './shared/animations';
-@import './shared/shared-grid';
 @import './shared/text';
 
-// Fonts
-
+// Fonts & Icons
 @import url('https://use.fontawesome.com/releases/v5.6.3/css/all.css');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,600');

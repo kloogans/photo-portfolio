@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import * as mobx from 'mobx'
 import Video from './video/Video'
+import SectionContainer from '../shared/section/SectionContainer'
 import store from '../../stores/store'
 import videos from './stores/videos'
 
@@ -10,18 +11,14 @@ const Videos = observer(
 
     componentDidMount() {
       store.current_page['color'] = '#240f2b'
+      document.documentElement.style.backgroundColor = '#240f2b'
     }
 
     render() {
       if (!store.loading && videos.youtube_data) {
         const data = mobx.toJS(videos.youtube_data)
         return (
-          <section className='section__container videos__container animate__fade--in'>
-            <header className='animate__fade-in--long'>
-              <h2 className='text text--large text--underline text--no-padding'>
-                Tutorials
-              </h2>
-            </header>
+          <SectionContainer title='Tutorials'>
             <div className='videos__list animate__fade-in--long'>
               {
                 data.map(v => {
@@ -43,7 +40,7 @@ const Videos = observer(
                 })
               }
             </div>
-          </section>
+          </SectionContainer>
         )
       } else {
         return 'Loading...'

@@ -13,17 +13,19 @@ const Grid = observer(
     toggleFullImage = index => store.toggleFullImageSlider(index)
 
     render() {
+      const width = window.innerWidth
       if (store.instagram.data && store.instagram.user) {
         const data = mobx.toJS(store.instagram.data),
               data_json = data.data,
               images = data_json.map((v, i) => {
+                console.log(data_json)
                 const time = moment.unix(v.created_time).fromNow()
                 return (
                   <div key={v.id}
                        onClick={() => this.toggleFullImage(i)}
                        className='insta-grid__img-wrapper'>
-                   
-                    <img src={v.images.standard_resolution.url}
+
+                    <img src={width > 768 ? v.images.standard_resolution.url : v.images.low_resolution.url}
                          alt='James Thomas Instagram' />
                     <div className='insta-grid__info'>
                       <p className='insta-grid__timestamp'>

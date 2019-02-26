@@ -3,11 +3,11 @@ import store from '../../../stores/store'
 import { observer } from 'mobx-react'
 
 const SectionContainer = observer(props => (
-  <section className={store.loading
+  <section role='region' className={store.loading
                       ? 'hidden'
                       : 'section__container animate__fade-in--long'}>
 
-    <header className={props.title ? 'animate__fade-in--long' : 'remove'}>
+    <header role='banner' className={props.title ? 'animate__fade-in--long' : 'remove'}>
       <h2 className='text text--large text--underline text--no-padding'>
         {props.title}
       </h2>

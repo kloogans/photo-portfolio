@@ -16,9 +16,9 @@ const About = observer(
       if (store.instagram.user) {
         return (
           <SectionContainer>
-            <div className='about__cover animate__fade-in--long'>
+            <header role='banner' className='about__cover animate__fade-in--long'>
               <img src='/images/self.png' alt='James Thomas' />
-            </div>
+            </header>
             <h2>
               Photographer // Digital Artist
             </h2>

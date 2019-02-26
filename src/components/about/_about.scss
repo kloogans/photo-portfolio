@@ -21,6 +21,7 @@
 
   &__cover {
     @include flex(row, center, center);
+    align-items: center !important;
     background: #0F1A2B;
     width: 100%;
     max-height: 200px;

@@ -42,15 +42,16 @@ const App = observer(
                 <TopBar />
                 <Navigation />
                 <div ref='scroll' />
-
-                <Switch>
-                  <Route exact path='/' component={Instagram} />
-                  <Route path='/photo/:id' component={Instagram} />
-                  <Route path='/about' component={About} />
-                  <Route path='/presets' component={Presets} />
-                  <Route path='/presets/:slug' component={Popover} />
-                  <Route path='/videos' component={Videos} />
-                </Switch>
+                <main role='main'>
+                  <Switch>
+                    <Route exact path='/' component={Instagram} />
+                    <Route path='/photo/:id' component={Instagram} />
+                    <Route path='/about' component={About} />
+                    <Route path='/presets' component={Presets} />
+                    <Route path='/presets/:slug' component={Popover} />
+                    <Route path='/videos' component={Videos} />
+                  </Switch>
+                </main>
 
               </div>
             </div>

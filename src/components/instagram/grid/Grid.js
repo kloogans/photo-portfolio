@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import MdHeart from 'react-ionicons/lib/MdHeart'
 import { withRouter } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import store from '../../../stores/store'
 import { observer } from 'mobx-react'
 import * as mobx from 'mobx'
@@ -21,6 +22,7 @@ const Grid = observer(
                   <div key={v.id}
                        onClick={() => this.toggleFullImage(i)}
                        className='insta-grid__img-wrapper'>
+                   
                     <img src={v.images.standard_resolution.url}
                          alt='James Thomas Instagram' />
                     <div className='insta-grid__info'>
@@ -40,6 +42,7 @@ const Grid = observer(
                         </p>
                         <a target='_blank'
                            rel="noopener noreferrer"
+                           title='See it on Instagram'
                            href={v.link}>
                           <i className='fab fa-instagram' />
                         </a>
@@ -52,7 +55,7 @@ const Grid = observer(
                 <div className='insta-grid__container grid grid__cols--3'>
                   {images}
                   <div className='insta-grid__img-wrapper'>
-                    <a href='https://instagram.com/jamesthomasvision'>
+                    <a title='James Thomas on Instagram' href='https://instagram.com/jamesthomasvision'>
                       <i className='fab fa-instagram' />
                     </a>
                   </div>

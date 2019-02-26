@@ -6,9 +6,6 @@ class Store {
   loading = true
   loading_complete = false
 
-  instagram = null
-  instagram_user = null
-
   instagram = {
     data: null,
     user: null
@@ -77,6 +74,7 @@ class Store {
     let index
     if (posts) index = posts.map(p => p.id).indexOf(id)
     if (id.length > 1 && index >= 0) this.toggleFullImageSlider(index)
+    return id
   }
 
   toggleFullImageSlider = i => {

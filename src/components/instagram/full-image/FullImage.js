@@ -138,11 +138,7 @@ const FullImage = observer(
                   </button>
                 </li>
               </ul>
-
-
-
           </div>
-
           <div className={show_share ? 'full-image__share-bar animate__fade--in' : 'remove'}>
             <div onClick={show_share ? this.exitShare : null}
                  className='full-image__share-underlay' />

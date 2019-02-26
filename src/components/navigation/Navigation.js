@@ -15,7 +15,7 @@ const Navigation = observer(
     render() {
       const width = window.innerWidth
       return (
-        <nav style={{ backgroundColor: `${store.current_page.color}` }}
+        <nav role='navigation' style={{ backgroundColor: `${store.current_page.color}` }}
              className={(store.shrink_logo && width > 768) || store.full_image.is_active || store.popover.is_active
                          ? 'navigation__container hidden'
                          : 'navigation__container'}>
@@ -24,7 +24,7 @@ const Navigation = observer(
               <div className='navigation__tooltip'>
                 Photos
               </div>
-              <Link to='/' onClick={() => this.changePage('photos', '#202B36')}>
+              <Link to='/' title='Photo Portfolio' onClick={() => this.changePage('photos', '#202B36')}>
                 <IosApps color='white' />
               </Link>
             </div>
@@ -32,7 +32,7 @@ const Navigation = observer(
               <div className='navigation__tooltip'>
                 Presets
               </div>
-              <Link to='/presets' onClick={() => this.changePage('presets', '#2b120f')}>
+              <Link to='/presets' title='Presets' onClick={() => this.changePage('presets', '#2b120f')}>
                 <IosOptions color='white' />
               </Link>
             </div>
@@ -40,7 +40,7 @@ const Navigation = observer(
               <div className='navigation__tooltip'>
                 Videos
               </div>
-              <Link to='/videos'>
+              <Link to='/videos' title='Tutorials and Tips'>
                 <IosVideocam color='white' />
               </Link>
             </div>
@@ -48,7 +48,7 @@ const Navigation = observer(
               <div className='navigation__tooltip'>
                 About
               </div>
-              <Link to='/about' onClick={() => this.changePage('about', '#0F1A2B')}>
+              <Link to='/about' title='About James Thomas' onClick={() => this.changePage('about', '#0F1A2B')}>
                 <IosContact color='white' />
               </Link>
             </div>

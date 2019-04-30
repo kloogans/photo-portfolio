@@ -11,16 +11,18 @@ import About from './components/about/About'
 import Div100vh from 'react-div-100vh'
 import { observer } from 'mobx-react'
 import store from './stores/store'
+import dataAction from './actions/dataActions'
+import handlerAction from './actions/handlerActions'
 import './App.scss'
 
 const App = observer(
   class App extends Component {
 
     componentDidMount() {
-      store.getInstaData()
-      store.getSelfData()
+      dataAction.getInstagramFeed()
+      dataAction.getInstagramUserData()
       videos.handleYoutubeData()
-      window.addEventListener("scroll", store.handleScroll)
+      window.addEventListener("scroll", handlerAction.handleScroll)
     }
 
     render() {

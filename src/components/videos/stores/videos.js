@@ -1,5 +1,5 @@
 import { observable, action, decorate } from 'mobx'
-import store from '../../../stores/store'
+import handlerAction from '../../../actions/handlerActions'
 
 class Videos {
   youtube_data = null
@@ -23,7 +23,7 @@ class Videos {
         const data = await yt.json()
         if (data) {
           this.youtube_data = data.items
-          store.finishLoading()
+          handlerAction.handleFinishLoading()
         }
       } catch(e) {
         console.error(e)

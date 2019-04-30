@@ -24,7 +24,7 @@ const Instagram = observer(
           </div>
         )
       } else {
-        return 'Loading...'
+        return null
       }
     }
   }

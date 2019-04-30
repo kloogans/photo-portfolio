@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import store from '../../stores/store'
+import toggleAction from '../../actions/toggleActions'
 import Preset from './preset/Preset'
 import presets_list from './presets-list'
 import Popover from '../shared/popover/Popover'
@@ -16,7 +17,7 @@ const Presets = observer(
 
     handlePresetRoute = slug => {
       this.props.history.push(`/presets/${slug}`)
-      store.togglePopover()
+      toggleAction.togglePopover()
     }
 
     render() {

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import * as mobx from 'mobx'
 import store from '../../../stores/store'
+import toggleAction from '../../../actions/toggleActions'
 
 const Popover = observer(
   class Popover extends Component {
@@ -12,7 +13,7 @@ const Popover = observer(
         <div style={{ backgroundColor: `${store.current_page.color}` }}
              className={popover.is_active ? 'popover__container animate__fade-in' : 'remove'}>
           <div className='popover__controls'>
-            <button onClick={store.togglePopover}>
+            <button onClick={toggleAction.togglePopover}>
               <i className='fas fa-times' />
             </button>
           </div>

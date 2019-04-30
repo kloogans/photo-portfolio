@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import { withRouter } from 'react-router-dom'
+import { LazyLoadImage } from 'react-lazy-load-image-component'
 import store from '../../../stores/store'
 
 const Preset = observer(
   class Preset extends Component {
 
-    doStuff = (preset, path) => {
+    handlePresetPopover = (preset, path) => {
       this.props.handlePresetRoute(path)
       store.popover.selected_preset = {...preset}
-      console.log(preset)
     }
 
     render() {
@@ -18,7 +18,10 @@ const Preset = observer(
             path = (title.split(' ').join('-')).toLowerCase()
       return (
         <div className='preset__item'>
-          <img src={p.cover_img} alt={p.title} />
+          <LazyLoadImage
+            alt={p.title}
+            effect="blur"
+            src={p.cover_img} />
           <div className='preset__overlay'>
             <h3 className='text text--small text--no-padding'>
               {p.title}
@@ -27,7 +30,8 @@ const Preset = observer(
               <i className='fas fa-download' />
               &nbsp;Download
             </button>
-            <button onClick={() => this.doStuff(p, path)} className='text text--small text--regular text--uppercase'>
+            <button onClick={() => this.handlePresetPopover(p, path)}
+                    className='text text--small text--regular text--uppercase'>
               <i className='fas fa-info-circle' />
               &nbsp;Details
             </button>

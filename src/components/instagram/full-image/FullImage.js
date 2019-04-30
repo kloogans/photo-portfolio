@@ -3,6 +3,8 @@ import { observer } from 'mobx-react'
 import * as mobx from 'mobx'
 import { withRouter } from 'react-router-dom'
 import store from '../../../stores/store'
+import handlerAction from '../../../actions/handlerActions'
+import toggleAction from '../../../actions/toggleActions'
 import Swipe from 'react-easy-swipe'
 import Blur from './effects/Blur'
 
@@ -22,12 +24,12 @@ const FullImage = observer(
     }
 
     handleImageSelection = (direction, id) => {
-      store.handlePagination(direction)
+      handlerAction.handlePagination(direction)
       this.props.history.push(`/photo/${id}`)
     }
 
     handleFullImageClose = () => {
-      store.toggleFullImageSlider()
+      toggleAction.toggleFullImageCarousel()
       this.props.history.push('/')
     }
 
@@ -116,11 +118,11 @@ const FullImage = observer(
               <ul>
                 <li>
                   <i className='fas fa-heart' />
-                  &nbsp;{store.formatNum(data.data[index].likes.count)}
+                  &nbsp;{handlerAction.handleNumberFormat(data.data[index].likes.count)}
                 </li>
                 <li>
                   <i className='fas fa-comment' />
-                  &nbsp;{store.formatNum(data.data[index].comments.count)}
+                  &nbsp;{handlerAction.handleNumberFormat(data.data[index].comments.count)}
                 </li>
                 <li>
                   <button onClick={this.toggleShare}>

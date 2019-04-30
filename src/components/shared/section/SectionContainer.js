@@ -3,7 +3,7 @@ import store from '../../../stores/store'
 import { observer } from 'mobx-react'
 
 const SectionContainer = observer(props => (
-  <section role='region' className={store.loading
+  <section className={store.loading
                       ? 'hidden'
                       : 'section__container animate__fade-in--long'}>
 

@@ -1,5 +1,5 @@
 # James Thomas
-A portfolio of my work with Digital Design, photoshop tutorials, and more.
+A portfolio of my work with digital design, photoshop tutorials, and more.
 ![](./port-ss.png)
 
 Built with

@@ -29,14 +29,14 @@ const Navigation = observer(
                 <IosApps color='white' />
               </Link>
             </div>
-            <div className='navigation__link'>
+            {/* <div className='navigation__link'>
               <div className='navigation__tooltip'>
                 Presets
               </div>
               <Link to='/presets' title='Presets' onClick={() => this.changePage('presets', '#2b120f')}>
                 <IosOptions color='white' />
               </Link>
-            </div>
+            </div> */}
             <div className='navigation__link'>
               <div className='navigation__tooltip'>
                 Videos
